@@ -1,39 +1,62 @@
 /*
-Deploy VPN Gateway
+Main file to deploy a Virtual Network, Public IP, and ExpressRoute Virtual Network Gateway
 */
 
 param name string
 param location string
-
-param gatewayType string = 'Vpn'
-param sku string
-param vpnGatewayGeneration string
-
-param vpnType string = 'RouteBased'
-param pipName array
 param vnetName string
+param vnetAddressPrefix string
+param gatewaySubnetPrefix string
+param pipName string
+param sku string
 
-resource subnet 'Microsoft.Network/virtualNetworks/subnets@2023-09-01' existing = {
-  name: '${vnetName}/GatewaySubnet'
+// Create Virtual Network
+resource vnet 'Microsoft.Network/virtualNetworks@2023-09-01' = {
+  name: vnetName
+  location: location
+  properties: {
+    addressSpace: {
+      addressPrefixes: [
+        vnetAddressPrefix
+      ]
+    }
+    subnets: [
+      {
+        name: 'GatewaySubnet'
+        properties: {
+          addressPrefix: gatewaySubnetPrefix
+        }
+      }
+    ]
+  }
 }
 
-resource pip 'Microsoft.Network/publicIPAddresses@2023-09-01' existing = {
-  name: pipName[0]
+// Create Public IP Address
+resource pip 'Microsoft.Network/publicIPAddresses@2023-09-01' = {
+  name: pipName
+  location: location
+  sku: {
+    name: 'Standard'
+  }
+  properties: {
+    publicIPAllocationMethod: 'Static'
+  }
 }
 
-resource vng 'Microsoft.Network/virtualNetworkGateways@2023-02-01' = {
+// Deploy ExpressRoute Virtual Network Gateway
+resource expressRouteVng 'Microsoft.Network/virtualNetworkGateways@2023-02-01' = {
   name: name
   location: location
   tags: {}
   properties: {
-    gatewayType: gatewayType
+    gatewayType: 'ExpressRoute'
     ipConfigurations: [
       {
         name: 'default'
         properties: {
           privateIPAllocationMethod: 'Dynamic'
           subnet: {
-            id: subnet.id
+            id: vnet.properties.subnets[0].id
           }
           publicIPAddress: {
             id: pip.id
@@ -41,8 +64,6 @@ resource vng 'Microsoft.Network/virtualNetworkGateways@2023-02-01' = {
         }
       }
     ]
-    vpnType: vpnType
-    vpnGatewayGeneration: vpnGatewayGeneration
     sku: {
       name: sku
       tier: sku
