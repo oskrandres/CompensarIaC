@@ -2,6 +2,10 @@
 
 Este proyecto ayuda en la automatización de la infraestructura utilizada por Compensar.
 
+## Arquitectura actual de referencia
+
+![Arquitectura](Docs/Actual.png)
+
 ### Pre Requesitos
 
 Azure CLI
