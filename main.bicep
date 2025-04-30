@@ -6,165 +6,117 @@ param RGVnet string
 param afwpName string
 param zones array
 param cr object
+param pipName array
+param ipgroup object
+param VNGName string
+param sku string
+param vpnGatewayGeneration string
+param lngName string
+param vpnConnectionName string
 
-module vnet 'vnet.bicep'= {
-  name:'deployVnet'
+module vnet 'modules/networking/vnet.bicep' = {
+  name: 'deployVnet'
 }
 
-module afwpcr 'afwpcr.bicep' = {
-  name:'deployAFwPCR'
-  params:{
-    afwpName:afwpName
-    cr:cr
+module afwpcr 'modules/afw/afwpcr.bicep' = {
+  name: 'deployAFwPCR'
+  params: {
+    afwpName: afwpName
+    cr: cr
   }
-  dependsOn:[
+  dependsOn: [
     afwp
   ]
 }
 
-
-module afw 'firewall.bicep' = {
-  name:'AzureFirewallDeploy'
-  scope:resourceGroup(RGVnet)
-  params:{
-    afwpName:afwpName
-    location:location
-    vnetName:vnetName
-    subnetName:subnetName
-    RGVnet:RGVnet
-    pipName:pipName[0]
-    afwName:afwName
-    zones:zones
-    cr:cr
+module afw 'modules/networking/firewall.bicep' = {
+  name: 'AzureFirewallDeploy'
+  scope: resourceGroup(RGVnet)
+  params: {
+    afwpName: afwpName
+    location: location
+    vnetName: vnetName
+    subnetName: subnetName
+    RGVnet: RGVnet
+    pipName: pipName
+    afwName: afwName
+    zones: zones
+    cr: cr
   }
-  dependsOn:[
+  dependsOn: [
     pip
     afwp
     vnet
   ]
 }
 
-
-module afwp 'afwp.bicep' = {
-  name:'AzureFirewallPolicyDeploy'
-  scope:resourceGroup(RGVnet)
-  params:{
-    location:location
-    afwpName:afwpName
+module afwp 'modules/afw/afwp.bicep' = {
+  name: 'AzureFirewallPolicyDeploy'
+  scope: resourceGroup(RGVnet)
+  params: {
+    location: location
+    afwpName: afwpName
   }
-  dependsOn:[
+  dependsOn: [
     ipgroups
   ]
 }
 
-/*
-Inicio Trozo despliegue de Ips públicas group
-*/
-
-
-/*
-Inicio Trozo Ip públicas
-*/
-//param pips array
-param pipName array
-
-module pip 'pip.bicep' = {
-  name:'DeployPip'
-  scope:resourceGroup(RGVnet)
-  params:{
-    location:location
-    pipName:pipName
+module pip 'modules/networking/pip.bicep' = {
+  name: 'DeployPip'
+  scope: resourceGroup(RGVnet)
+  params: {
+    location: location
+    pipName: pipName
   }
 }
 
-/*
-Fin Trozo despliegue de Ips públicas group
-*/
-
-
-/*
-Inicio Trozo Ip group
-*/
-
-param ipgroup object
-
-module ipgroups 'ipgroup.bicep' = {
-  name:'IpGroupDeploy'
-  scope:resourceGroup(RGVnet)
-  params:{
-    ipgroup:ipgroup
-    location:location
+module ipgroups 'modules/networking/ipgroup.bicep' = {
+  name: 'IpGroupDeploy'
+  scope: resourceGroup(RGVnet)
+  params: {
+    ipgroup: ipgroup
+    location: location
   }
 }
 
-/*
-Fin Trozo Ip group
-*/
-
-/*
-Inicio Trozo VNG VPN
-*/
-param VNGName string
-param sku string
-param vpnGatewayGeneration string
-
-module vng 'vng.bicep' = {
-  name:'deployVNGVPN'
-  scope:resourceGroup(RGVnet)
-  params:{
-    location:location
-    name:VNGName
-    pipName:pipName[1]
-    sku:sku
-    vnetName:vnetName
-    vpnGatewayGeneration:vpnGatewayGeneration
+module vng 'modules/networking/vng.bicep' = {
+  name: 'deployVNGVPN'
+  scope: resourceGroup(RGVnet)
+  params: {
+    location: location
+    name: VNGName
+    pipName: pipName
+    sku: sku
+    vnetName: vnetName
+    vpnGatewayGeneration: vpnGatewayGeneration
   }
-  dependsOn:[
+  dependsOn: [
     pip
     vnet
   ]
 }
 
-/*
-Fin Trozo VNG VPN
-*/
-
-/*
-Inicio trozo LNG
-*/
-
-module lng  'lng.bicep' = {
-  name:'deployLNG'
-  scope:resourceGroup(RGVnet)
-  params:{
-    location:location
-    lngName:lngName
+module lng 'modules/networking/lng.bicep' = {
+  name: 'deployLNG'
+  scope: resourceGroup(RGVnet)
+  params: {
+    location: location
+    lngName: lngName
   }
 }
-/*
-Fin trozo LNG
-*/
 
-/*
-Inicio trozo Connection
-*/
-param lngName string
-param vpnConnectionName string
-
-module connectionVPN 'connVpn.bicep' = {
-  name:'deployConnVPN'
-  scope:resourceGroup(RGVnet)
-  params:{
-    lngName:lngName
-    location:location
-    vngName:VNGName
-    vpnConnectionName:vpnConnectionName
+module connectionVPN 'modules/networking/connVpn.bicep' = {
+  name: 'deployConnVPN'
+  scope: resourceGroup(RGVnet)
+  params: {
+    lngName: lngName
+    location: location
+    vngName: VNGName
+    vpnConnectionName: vpnConnectionName
   }
-  dependsOn:[
+  dependsOn: [
     lng
     vng
   ]
 }
-/*
-Fin trozo Connection
-*/

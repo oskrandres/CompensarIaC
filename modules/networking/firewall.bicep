@@ -7,12 +7,12 @@ param location string
 param vnetName string
 param subnetName string
 param RGVnet string
-param pipName string
+param pipName array
 param afwpName string
 param zones array
 param cr object
 resource pip 'Microsoft.Network/publicIPAddresses@2024-01-01' existing = {
-  name:pipName
+  name:pipName[0]
 }
 
 resource vnet 'Microsoft.Network/virtualNetworks@2024-01-01' existing = {
@@ -42,7 +42,7 @@ resource azureFirewalls_afw_eastus_001_name_resource 'Microsoft.Network/azureFir
     additionalProperties: {}
     ipConfigurations: [
       {
-        name: pipName
+        name: pipName[0]
         properties: {
           publicIPAddress: {
             id: pip.id
