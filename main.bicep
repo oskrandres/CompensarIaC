@@ -6,6 +6,7 @@ param RGVnet string
 param afwpName string
 param zones array
 param cr object
+param VnetSubnets array
 param pipName array
 param ipgroup object
 param VNGName string
@@ -16,6 +17,10 @@ param vpnConnectionName string
 
 module vnet 'modules/networking/vnet.bicep' = {
   name: 'deployVnet'
+  params: {
+    VnetSubnets: VnetSubnets
+    location: location
+  }
 }
 
 module afwpcr 'modules/afw/afwpcr.bicep' = {
@@ -80,13 +85,13 @@ module ipgroups 'modules/networking/ipgroup.bicep' = {
   }
 }
 
-module vng 'modules/networking/vng.bicep' = {
+module vng 'modules/networking/VPN_vng.bicep' = {
   name: 'deployVNGVPN'
   scope: resourceGroup(RGVnet)
   params: {
     location: location
     name: VNGName
-    pipName: pipName
+    pipName: pipName[0]
     sku: sku
     vnetName: vnetName
     vpnGatewayGeneration: vpnGatewayGeneration

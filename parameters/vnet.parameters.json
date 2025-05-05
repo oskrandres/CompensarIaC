@@ -1,0 +1,318 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "location": {
+      "value": "eastus"
+    },
+    "VnetSubnets": {
+      "value": [
+        {
+          "name": "GatewaySubnet",
+          "addressPrefix": "10.204.0.128/27",
+          "serviceEndpoints": [],
+          "delegations": [],
+          "privateEndpointNetworkPolicies": "NetworkSecurityGroupEnabled",
+          "privateLinkServiceNetworkPolicies": "Disabled"
+        },
+        {
+          "name": "snet-firwll-sdwanf-public-trv-i",
+          "addressPrefix": "10.204.1.0/28",
+          "serviceEndpoints": [],
+          "delegations": [],
+          "privateEndpointNetworkPolicies": "NetworkSecurityGroupEnabled",
+          "privateLinkServiceNetworkPolicies": "Disabled"
+        },
+        {
+          "name": "snet-firwll-sdwanf-privte-trv-i",
+          "addressPrefix": "10.204.1.16/28",
+          "serviceEndpoints": [],
+          "delegations": [],
+          "privateEndpointNetworkPolicies": "NetworkSecurityGroupEnabled",
+          "privateLinkServiceNetworkPolicies": "Disabled"
+        },
+        {
+          "name": "snet-firwll-sdwanf-mngmnt-trv-i",
+          "addressPrefix": "10.204.1.32/28",
+          "serviceEndpoints": [],
+          "delegations": [],
+          "privateEndpointNetworkPolicies": "NetworkSecurityGroupEnabled",
+          "privateLinkServiceNetworkPolicies": "Disabled"
+        },
+        {
+          "name": "snet-netwrk-centrl-vaults-trv-i",
+          "addressPrefix": "10.204.4.0/27",
+          "serviceEndpoints": [
+            {
+              "service": "Microsoft.KeyVault",
+              "locations": ["*"]
+            }
+          ],
+          "delegations": [],
+          "privateEndpointNetworkPolicies": "NetworkSecurityGroupEnabled",
+          "privateLinkServiceNetworkPolicies": "Disabled"
+        },
+        {
+          "name": "snet-netwrk-centrl-applic-trv-i",
+          "addressPrefix": "10.204.3.64/26",
+          "serviceEndpoints": [
+            {
+              "service": "Microsoft.Web",
+              "locations": ["*"]
+            }
+          ],
+          "delegations": [],
+          "privateEndpointNetworkPolicies": "NetworkSecurityGroupEnabled",
+          "privateLinkServiceNetworkPolicies": "Disabled"
+        },
+        {
+          "name": "AzureFirewallSubnet",
+          "addressPrefix": "10.204.1.128/26",
+          "serviceEndpoints": [],
+          "delegations": [],
+          "privateEndpointNetworkPolicies": "Disabled",
+          "privateLinkServiceNetworkPolicies": "Enabled"
+        },
+        {
+          "name": "snet-netwrk-centrl-agwpub-trv-i",
+          "addressPrefix": "10.204.0.0/26",
+          "serviceEndpoints": [],
+          "delegations": [],
+          "privateEndpointNetworkPolicies": "Disabled",
+          "privateLinkServiceNetworkPolicies": "Disabled"
+        },
+
+        {
+          "name": "snet-firwll-sdwanf-syncro-trv-i",
+          "addressPrefix": "10.204.1.48/28",
+          "serviceEndpoints": [],
+          "delegations": [],
+          "privateEndpointNetworkPolicies": "NetworkSecurityGroupEnabled",
+          "privateLinkServiceNetworkPolicies": "Disabled"
+        },
+        {
+          "name": "snet-firwll-sdwanf-exrout-trv-i",
+          "addressPrefix": "10.204.1.64/28",
+          "serviceEndpoints": [],
+          "delegations": [],
+          "privateEndpointNetworkPolicies": "NetworkSecurityGroupEnabled",
+          "privateLinkServiceNetworkPolicies": "Disabled"
+        },
+        {
+          "name": "snet-firwll-sdwanf-dircon-trv-i",
+          "addressPrefix": "10.204.1.80/28",
+          "serviceEndpoints": [],
+          "delegations": [],
+          "privateEndpointNetworkPolicies": "NetworkSecurityGroupEnabled",
+          "privateLinkServiceNetworkPolicies": "Disabled"
+        },
+        {
+          "name": "snet-netwrk-dnspra-inbepa-trv-i",
+          "addressPrefix": "10.204.2.0/28",
+          "serviceEndpoints": [],
+          "delegations": [
+            {
+              "name": "Microsoft.Network.dnsResolvers",
+              "servicename": "Microsoft.Network/dnsResolvers",
+              "type": "Microsoft.Network/virtualNetworks/subnets/delegations"
+            }
+          ],
+          "privateEndpointNetworkPolicies": "NetworkSecurityGroupEnabled",
+          "privateLinkServiceNetworkPolicies": "Disabled"
+        },
+        {
+          "name": "snet-netwrk-dnspra-inbepb-trv-i",
+          "addressPrefix": "10.204.2.16/28",
+          "serviceEndpoints": [],
+          "delegations": [
+            {
+              "name": "Microsoft.Network.dnsResolvers",
+              "servicename": "Microsoft.Network/dnsResolvers",
+              "type": "Microsoft.Network/virtualNetworks/subnets/delegations"
+            }
+          ],
+          "privateEndpointNetworkPolicies": "NetworkSecurityGroupEnabled",
+          "privateLinkServiceNetworkPolicies": "Disabled"
+        },
+        {
+          "name": "snet-netwrk-dnspra-inbepc-trv-i",
+          "addressPrefix": "10.204.2.32/28",
+          "serviceEndpoints": [],
+          "delegations": [
+            {
+              "name": "Microsoft.Network.dnsResolvers",
+              "servicename": "Microsoft.Network/dnsResolvers",
+              "type": "Microsoft.Network/virtualNetworks/subnets/delegations"
+            }
+          ],
+          "privateEndpointNetworkPolicies": "NetworkSecurityGroupEnabled",
+          "privateLinkServiceNetworkPolicies": "Disabled"
+        },
+        {
+          "name": "snet-netwrk-dnspra-inbepd-trv-i",
+          "addressPrefix": "10.204.2.48/28",
+          "serviceEndpoints": [],
+          "delegations": [
+            {
+              "name": "Microsoft.Network.dnsResolvers",
+              "servicename": "Microsoft.Network/dnsResolvers",
+              "type": "Microsoft.Network/virtualNetworks/subnets/delegations"
+            }
+          ],
+          "privateEndpointNetworkPolicies": "NetworkSecurityGroupEnabled",
+          "privateLinkServiceNetworkPolicies": "Disabled"
+        },
+        {
+          "name": "snet-netwrk-dnspra-outepa-trv-i",
+          "addressPrefix": "10.204.2.64/28",
+          "serviceEndpoints": [],
+          "delegations": [
+            {
+              "name": "Microsoft.Network.dnsResolvers",
+              "servicename": "Microsoft.Network/dnsResolvers",
+              "type": "Microsoft.Network/virtualNetworks/subnets/delegations"
+            }
+          ],
+          "privateEndpointNetworkPolicies": "NetworkSecurityGroupEnabled",
+          "privateLinkServiceNetworkPolicies": "Disabled"
+        },
+        {
+          "name": "snet-netwrk-centrl-mngmnt-trv-i",
+          "addressPrefix": "10.204.3.0/26",
+          "serviceEndpoints": [],
+          "delegations": [],
+          "privateEndpointNetworkPolicies": "NetworkSecurityGroupEnabled",
+          "privateLinkServiceNetworkPolicies": "Disabled"
+        },
+        {
+          "name": "snet-netwrk-dnspra-outepd-trv-i",
+          "addressPrefix": "10.204.2.112/28",
+          "serviceEndpoints": [],
+          "delegations": [
+            {
+              "name": "Microsoft.Network.dnsResolvers",
+              "servicename": "Microsoft.Network/dnsResolvers",
+              "type": "Microsoft.Network/virtualNetworks/subnets/delegations"
+            }
+          ],
+          "privateEndpointNetworkPolicies": "NetworkSecurityGroupEnabled",
+          "privateLinkServiceNetworkPolicies": "Disabled"
+        },
+        {
+          "name": "snet-netwrk-dnspra-outepc-trv-i",
+          "addressPrefix": "10.204.2.96/28",
+          "serviceEndpoints": [],
+          "delegations": [
+            {
+              "name": "Microsoft.Network.dnsResolvers",
+              "servicename": "Microsoft.Network/dnsResolvers",
+              "type": "Microsoft.Network/virtualNetworks/subnets/delegations"
+            }
+          ],
+          "privateEndpointNetworkPolicies": "NetworkSecurityGroupEnabled",
+          "privateLinkServiceNetworkPolicies": "Disabled"
+        },
+        {
+          "name": "snet-netwrk-dnspra-outepb-trv-i",
+          "addressPrefix": "10.204.2.80/28",
+          "serviceEndpoints": [],
+          "delegations": [
+            {
+              "name": "Microsoft.Network.dnsResolvers",
+              "servicename": "Microsoft.Network/dnsResolvers",
+              "type": "Microsoft.Network/virtualNetworks/subnets/delegations"
+            }
+          ],
+          "privateEndpointNetworkPolicies": "NetworkSecurityGroupEnabled",
+          "privateLinkServiceNetworkPolicies": "Disabled"
+        },
+        {
+          "name": "snet-netwrk-centrl-datbse-trv-i",
+          "addressPrefix": "10.204.3.128/26",
+          "serviceEndpoints": [
+            {
+              "service": "Microsoft.AzureCosmosDB",
+              "locations": [
+                "*"
+              ]
+            },
+            {
+              "service": "Microsoft.Storage",
+              "locations": [
+                "eastus2",
+                "centralus"
+              ]
+            },
+            {
+              "service": "Microsoft.Sql",
+              "locations": [
+                "eastus2"
+              ]
+            }
+          ],
+          "delegations": [],
+          "privateEndpointNetworkPolicies": "NetworkSecurityGroupEnabled",
+          "privateLinkServiceNetworkPolicies": "Disabled"
+        },
+        {
+          "name": "snet-netwrk-centrl-stoacc-trv-i",
+          "addressPrefix": "10.204.3.192/26",
+          "serviceEndpoints": [
+            {
+              "service": "Microsoft.AzureCosmosDB",
+              "locations": [
+                "*"
+              ]
+            },
+            {
+              "service": "Microsoft.Storage",
+              "locations": [
+                "eastus2",
+                "centralus"
+              ]
+            },
+            {
+              "service": "Microsoft.Sql",
+              "locations": [
+                "eastus2"
+              ]
+            }
+          ],
+          "delegations": [],
+          "privateEndpointNetworkPolicies": "NetworkSecurityGroupEnabled",
+          "privateLinkServiceNetworkPolicies": "Disabled"
+        },
+        {
+          "name": "snet-netwrk-temprb-gclint-trv-i",
+            "addressPrefix": "10.204.5.224/28",
+            "serviceEndpoints": [
+              {
+                "service": "Microsoft.Storage",
+                "locations": [
+                  "eastus2",
+                  "centralus"
+                ]
+              }
+            ],
+            "delegations": [
+              {
+                "name": "Microsoft.Network.dnsResolvers",
+                "servicename": "Microsoft.Network/dnsResolvers",
+                "type": "Microsoft.Network/virtualNetworks/subnets/delegations"
+              }
+            ],
+            "privateEndpointNetworkPolicies": "NetworkSecurityGroupEnabled",
+            "privateLinkServiceNetworkPolicies": "Disabled"
+        },
+        {
+          "name": "snet-netwrk-tempra-jmeter-trv-i",
+          "addressPrefix": "10.204.5.240/28",
+          "serviceEndpoints": [],
+          "delegations": [],
+          "privateEndpointNetworkPolicies": "NetworkSecurityGroupEnabled",
+          "privateLinkServiceNetworkPolicies": "Disabled"
+        }
+      ]
+    }
+  }
+}
