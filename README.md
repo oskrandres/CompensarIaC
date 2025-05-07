@@ -14,7 +14,7 @@ Bicep
 ### Despliegue
 
 ```powershell
-az group create --name rg-hub-compensar --location "Central US"
+az group create --name rg-platfr-secuty-privte-trv-i --location "Central US"
 
-az deployment group create --resource-group rg-hub-compensar --template-file "main.bicep" --parameters "@parameters/project.parameters.json" --parameters "@parameters/afw.parameters.json" --parameters "@parameters/afwpcr.parameters.json" --parameters "@parameters/vnet.parameters.json" --parameters "@parameters/tags.parameters.json" --what-if
+az deployment group create --resource-group rg-platfr-secuty-privte-trv-i --template-file "main.bicep" --parameters "@parameters/project.parameters.json" --parameters "@parameters/afw.parameters.json" --parameters "@parameters/afwpcr.parameters.json" --parameters "@parameters/vnet.parameters.json" --parameters "@parameters/tags.parameters.json" --what-if
 ```
