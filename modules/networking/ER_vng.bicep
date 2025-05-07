@@ -9,11 +9,13 @@ param vnetAddressPrefix string
 param gatewaySubnetPrefix string
 param pipName string
 param sku string
+param tags object
 
 // Create Virtual Network
 resource vnet 'Microsoft.Network/virtualNetworks@2023-09-01' = {
   name: vnetName
   location: location
+  tags: tags
   properties: {
     addressSpace: {
       addressPrefixes: [
@@ -35,6 +37,7 @@ resource vnet 'Microsoft.Network/virtualNetworks@2023-09-01' = {
 resource pip 'Microsoft.Network/publicIPAddresses@2023-09-01' = {
   name: pipName
   location: location
+  tags: tags
   sku: {
     name: 'Standard'
   }
@@ -47,7 +50,7 @@ resource pip 'Microsoft.Network/publicIPAddresses@2023-09-01' = {
 resource expressRouteVng 'Microsoft.Network/virtualNetworkGateways@2023-02-01' = {
   name: name
   location: location
-  tags: {}
+  tags: tags
   properties: {
     gatewayType: 'ExpressRoute'
     ipConfigurations: [

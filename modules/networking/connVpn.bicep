@@ -6,6 +6,7 @@ param vpnConnectionName string
 param location string
 param vngName string
 param lngName string
+param tags object
 
 resource vpn 'Microsoft.Network/virtualNetworkGateways@2024-01-01' existing = {
   name:vngName
@@ -18,6 +19,7 @@ resource lng 'Microsoft.Network/localNetworkGateways@2024-01-01' existing = {
 resource connections_conn_compensar_name_resource 'Microsoft.Network/connections@2024-01-01' = {
   name: vpnConnectionName
   location: location
+  tags: tags
   properties: {
     virtualNetworkGateway1: {
       id: vpn.id

@@ -14,12 +14,14 @@ param sku string
 param vpnGatewayGeneration string
 param lngName string
 param vpnConnectionName string
+param tags object
 
 module vnet 'modules/networking/vnet.bicep' = {
   name: 'deployVnet'
   params: {
     VnetSubnets: VnetSubnets
     location: location
+    tags: tags
   }
 }
 
@@ -47,6 +49,7 @@ module afw 'modules/networking/firewall.bicep' = {
     afwName: afwName
     zones: zones
     cr: cr
+    tags: tags
   }
   dependsOn: [
     pip
@@ -73,6 +76,7 @@ module pip 'modules/networking/pip.bicep' = {
   params: {
     location: location
     pipName: pipName
+    tags: tags
   }
 }
 
@@ -82,6 +86,7 @@ module ipgroups 'modules/networking/ipgroup.bicep' = {
   params: {
     ipgroup: ipgroup
     location: location
+    tags: tags
   }
 }
 
@@ -95,6 +100,7 @@ module vng 'modules/networking/VPN_vng.bicep' = {
     sku: sku
     vnetName: vnetName
     vpnGatewayGeneration: vpnGatewayGeneration
+    tags: tags
   }
   dependsOn: [
     pip
@@ -108,6 +114,7 @@ module lng 'modules/networking/lng.bicep' = {
   params: {
     location: location
     lngName: lngName
+    tags: tags
   }
 }
 
@@ -119,6 +126,7 @@ module connectionVPN 'modules/networking/connVpn.bicep' = {
     location: location
     vngName: VNGName
     vpnConnectionName: vpnConnectionName
+    tags: tags
   }
   dependsOn: [
     lng

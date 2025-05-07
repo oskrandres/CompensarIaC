@@ -4,10 +4,12 @@ Deploy Local Network Gateway
 
 param lngName string
 param location string
+param tags object
 
 resource lng 'Microsoft.Network/localNetworkGateways@2024-01-01' = {
   name: lngName
   location: location
+  tags: tags
   properties: {
     localNetworkAddressSpace: {
       addressPrefixes: [

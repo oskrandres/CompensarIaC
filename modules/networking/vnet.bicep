@@ -1,16 +1,12 @@
 param virtualNetworks_vnet_netwrk_centrl_main_trv_i_name string = 'vnet-netwrk-centrl-main-trv-i'
 param VnetSubnets array
 param location string
-
+param tags object
 
 resource virtualNetworks_vnet_netwrk_centrl_main_trv_i_name_resource 'Microsoft.Network/virtualNetworks@2023-11-01' = {
   name: virtualNetworks_vnet_netwrk_centrl_main_trv_i_name
   location: location
-  tags: {
-    APLICACION: 'netwrk'
-    CAPACIDAD: 'platfr'
-    'COD-APP-CMDB': 'SWPR000'
-  }
+  tags: tags
   properties: {
     addressSpace: {
       addressPrefixes: [

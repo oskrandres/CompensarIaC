@@ -11,6 +11,8 @@ param pipName array
 param afwpName string
 param zones array
 param cr object
+param tags object
+
 resource pip 'Microsoft.Network/publicIPAddresses@2024-01-01' existing = {
   name:pipName[0]
 }
@@ -32,6 +34,7 @@ resource afwp 'Microsoft.Network/firewallPolicies@2024-01-01' existing = {
 resource azureFirewalls_afw_eastus_001_name_resource 'Microsoft.Network/azureFirewalls@2024-01-01' = {
   name: afwName
   location: location
+  tags: tags
   zones:zones
   properties: {
     sku: {

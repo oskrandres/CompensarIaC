@@ -13,6 +13,8 @@ param vpnType string = 'RouteBased'
 param pipName string
 param vnetName string
 
+param tags object 
+
 resource subnet 'Microsoft.Network/virtualNetworks/subnets@2023-09-01' existing = {
   name: '${vnetName}/GatewaySubnet'
 }
@@ -24,7 +26,7 @@ resource pip 'Microsoft.Network/publicIPAddresses@2023-09-01' existing = {
 resource vng 'Microsoft.Network/virtualNetworkGateways@2023-02-01' = {
   name: name
   location: location
-  tags: {}
+  tags: tags
   properties: {
     gatewayType: gatewayType
     ipConfigurations: [
