@@ -33,6 +33,7 @@ module afwpcr 'modules/afw/afwpcr.bicep' = {
   }
   dependsOn: [
     afwp
+    vnet
   ]
 }
 

@@ -12,7 +12,7 @@
             "value": "AzureFirewallSubnet"
         },
         "RGVnet":{
-            "value": "rg-hub-compensar"
+            "value": "rg-platfr-secuty-public-trv-i"
         },
         "afwpName":{
             "value": "afwp-eastus2-01"
