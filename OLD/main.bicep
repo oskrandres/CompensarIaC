@@ -25,6 +25,20 @@ module vnet 'modules/networking/vnet.bicep' = {
   }
 }
 
+/*module subnets 'modules/networking/subnet.bicep' = [for subnet in VnetSubnets: {
+  name: 'deploySubnet-${subnet.name}'
+  params: {
+    vnetName: vnetName
+    subnetName: subnet.name
+    addressPrefix: subnet.addressPrefix
+    serviceEndpoints: subnet.serviceEndpoints
+    delegations: subnet.delegations
+    privateEndpointNetworkPolicies: subnet.privateEndpointNetworkPolicies
+    privateLinkServiceNetworkPolicies: subnet.privateLinkServiceNetworkPolicies
+  }
+}]
+*/
+
 module afwpcr 'modules/afw/afwpcr.bicep' = {
   name: 'deployAFwPCR'
   params: {
@@ -34,6 +48,7 @@ module afwpcr 'modules/afw/afwpcr.bicep' = {
   dependsOn: [
     afwp
     vnet
+    //subnets
   ]
 }
 

@@ -1,0 +1,256 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "location": {
+            "value": "eastus"
+        },
+        "routeTableName": {
+            "value": "rt-snet-GatewaySubnet-trv-i"
+        },
+        "routes": {
+            "value": [
+                {
+                    "name": "rt-vnet-netwrk-centrl-main-dvl-i-01",
+                    "properties": {
+                        "addressPrefix": "10.89.0.0/20",
+                        "nextHopType": "VirtualAppliance",
+                        "nextHopIpAddress": "10.204.1.132"
+                    }
+                },
+                {
+                    "name": "rt-vnet-netwrk-centrl-main-dvl-i-02",
+                    "properties": {
+                        "addressPrefix": "10.89.16.0/20",
+                        "nextHopType": "VirtualAppliance",
+                        "nextHopIpAddress": "10.204.1.132"
+                    }
+                },
+                {
+                    "name": "rt-vnet-netwrk-centrl-main-dvl-i-03",
+                    "properties": {
+                        "addressPrefix": "10.89.32.0/20",
+                        "nextHopType": "VirtualAppliance",
+                        "nextHopIpAddress": "10.204.1.132"
+                    }
+                },
+                {
+                    "name": "rt-vnet-netwrk-centrl-main-dvl-i-04",
+                    "properties": {
+                        "addressPrefix": "10.89.48.0/20",
+                        "nextHopType": "VirtualAppliance",
+                        "nextHopIpAddress": "10.204.1.132"
+                    }
+                },
+                {
+                    "name": "rt-vnet-netwrk-centrl-main-tst-i-01",
+                    "properties": {
+                        "addressPrefix": "10.89.128.0/20",
+                        "nextHopType": "VirtualAppliance",
+                        "nextHopIpAddress": "10.204.1.132"
+                    }
+                },
+                {
+                    "name": "rt-vnet-netwrk-centrl-main-tst-i-02",
+                    "properties": {
+                        "addressPrefix": "10.89.144.0/20",
+                        "nextHopType": "VirtualAppliance",
+                        "nextHopIpAddress": "10.204.1.132"
+                    }
+                },
+                {
+                    "name": "rt-vnet-netwrk-centrl-main-tst-i-03",
+                    "properties": {
+                        "addressPrefix": "10.89.160.0/20",
+                        "nextHopType": "VirtualAppliance",
+                        "nextHopIpAddress": "10.204.1.132"
+                    }
+                },
+                {
+                    "name": "rt-vnet-netwrk-centrl-main-tst-i-04",
+                    "properties": {
+                        "addressPrefix": "10.89.176.0/20",
+                        "nextHopType": "VirtualAppliance",
+                        "nextHopIpAddress": "10.204.1.132"
+                    }
+                },
+                {
+                    "name": "rt-vnet-netwrk-centrl-main-prp-i-01",
+                    "properties": {
+                        "addressPrefix": "10.205.0.0/20",
+                        "nextHopType": "VirtualAppliance",
+                        "nextHopIpAddress": "10.204.1.132"
+                    }
+                },
+                {
+                    "name": "rt-vnet-netwrk-centrl-main-prp-i-02",
+                    "properties": {
+                        "addressPrefix": "10.205.16.0/20",
+                        "nextHopType": "VirtualAppliance",
+                        "nextHopIpAddress": "10.204.1.132"
+                    }
+                },
+                {
+                    "name": "rt-vnet-netwrk-centrl-main-prp-i-03",
+                    "properties": {
+                        "addressPrefix": "10.205.32.0/20",
+                        "nextHopType": "VirtualAppliance",
+                        "nextHopIpAddress": "10.204.1.132"
+                    }
+                },
+                {
+                    "name": "rt-vnet-netwrk-centrl-main-prp-i-04",
+                    "properties": {
+                        "addressPrefix": "10.205.48.0/20",
+                        "nextHopType": "VirtualAppliance",
+                        "nextHopIpAddress": "10.204.1.132"
+                    }
+                },
+                {
+                    "name": "rt-vnet-netwrk-centrl-main-prd-i-01",
+                    "properties": {
+                        "addressPrefix": "10.203.0.0/20",
+                        "nextHopType": "VirtualAppliance",
+                        "nextHopIpAddress": "10.204.1.132"
+                    }
+                },
+                {
+                    "name": "rt-vnet-netwrk-centrl-main-prd-i-02",
+                    "properties": {
+                        "addressPrefix": "10.203.16.0/20",
+                        "nextHopType": "VirtualAppliance",
+                        "nextHopIpAddress": "10.204.1.132"
+                    }
+                },
+                {
+                    "name": "rt-vnet-netwrk-centrl-main-prd-i-03",
+                    "properties": {
+                        "addressPrefix": "10.203.32.0/20",
+                        "nextHopType": "VirtualAppliance",
+                        "nextHopIpAddress": "10.204.1.132"
+                    }
+                },
+                {
+                    "name": "rt-vnet-netwrk-centrl-main-prd-i-04",
+                    "properties": {
+                        "addressPrefix": "10.203.48.0/20",
+                        "nextHopType": "VirtualAppliance",
+                        "nextHopIpAddress": "10.204.1.132"
+                    }
+                },
+                {
+                    "name": "rt-vnet-netwrk-centrl-main-trv-i-01",
+                    "properties": {
+                        "addressPrefix": "10.204.0.0/20",
+                        "nextHopType": "VirtualAppliance",
+                        "nextHopIpAddress": "10.204.1.132"
+                    }
+                },
+                {
+                    "name": "rt-vnet-netwrk-centrl-main-poc-i-01",
+                    "properties": {
+                        "addressPrefix": "10.204.240.0/20",
+                        "nextHopType": "VirtualAppliance",
+                        "nextHopIpAddress": "10.204.1.132"
+                    }
+                },
+                {
+                    "name": "rt-vpn-sts-compensar-ccf-aws-dev",
+                    "properties": {
+                        "addressPrefix": "10.19.0.0/16",
+                        "nextHopType": "VirtualNetworkGateway",
+                        "nextHopIpAddress": null
+                    }
+                },
+                {
+                    "name": "rt-vpn-sts-compensar-ccf-aws-test",
+                    "properties": {
+                        "addressPrefix": "10.20.0.0/16",
+                        "nextHopType": "VirtualNetworkGateway",
+                        "nextHopIpAddress": null
+                    }
+                },
+                {
+                    "name": "rt-vpn-sts-compensar-ccf-aws-preprod",
+                    "properties": {
+                        "addressPrefix": "10.24.0.0/16",
+                        "nextHopType": "VirtualNetworkGateway",
+                        "nextHopIpAddress": null
+                    }
+                },
+                {
+                    "name": "rt-vpn-sts-compensar-ccf-aws-prod",
+                    "properties": {
+                        "addressPrefix": "10.21.0.0/16",
+                        "nextHopType": "VirtualNetworkGateway",
+                        "nextHopIpAddress": null
+                    }
+                },
+                {
+                    "name": "rt-vpn-sts-compensar-ccf-aws-hub",
+                    "properties": {
+                        "addressPrefix": "10.83.0.0/16",
+                        "nextHopType": "VirtualNetworkGateway",
+                        "nextHopIpAddress": null
+                    }
+                },
+                {
+                    "name": "rt-vpn-sts-compensar-salud-azure-noprod-01",
+                    "properties": {
+                        "addressPrefix": "172.27.216.0/21",
+                        "nextHopType": "VirtualNetworkGateway",
+                        "nextHopIpAddress": null
+                    }
+                },
+                {
+                    "name": "rt-vpn-sts-compensar-salud-azure-noprod-02",
+                    "properties": {
+                        "addressPrefix": "172.27.224.0/23",
+                        "nextHopType": "VirtualNetworkGateway",
+                        "nextHopIpAddress": null
+                    }
+                },
+                {
+                    "name": "rt-vpn-sts-compensar-salud-azure-noprod-03",
+                    "properties": {
+                        "addressPrefix": "172.27.232.0/23",
+                        "nextHopType": "VirtualNetworkGateway",
+                        "nextHopIpAddress": null
+                    }
+                },
+                {
+                    "name": "rt-vpn-sts-compensar-salud-azure-noprod-04",
+                    "properties": {
+                        "addressPrefix": "172.27.234.0/24",
+                        "nextHopType": "VirtualNetworkGateway",
+                        "nextHopIpAddress": null
+                    }
+                },
+                {
+                    "name": "rt-vpn-sts-compensar-salud-azure-prod-01",
+                    "properties": {
+                        "addressPrefix": "172.27.150.0/23",
+                        "nextHopType": "VirtualNetworkGateway",
+                        "nextHopIpAddress": null
+                    }
+                },
+                {
+                    "name": "rt-vpn-sts-compensar-salud-azure-prod-02",
+                    "properties": {
+                        "addressPrefix": "172.27.251.0/24",
+                        "nextHopType": "VirtualNetworkGateway",
+                        "nextHopIpAddress": null
+                    }
+                },
+                {
+                    "name": "rt-vpn-sts-ciel-azure-digiturno",
+                    "properties": {
+                        "addressPrefix": "10.204.224.0/26",
+                        "nextHopType": "VirtualNetworkGateway",
+                        "nextHopIpAddress": null
+                    }
+                }
+            ]
+        }
+    }
+}

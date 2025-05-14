@@ -1,0 +1,33 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+      "location": {
+        "value": "eastus"
+      },
+      "policyName": {
+        "value": "afwp-afw-secuty-public-centrl-trv-i"
+      },
+        "ruleCollectionGroups": {
+            "value": [
+                {
+                    "Justificación": "Reglas del HUB, tráfico credtico entre Spokes y HUB  (máxima prioridad dentro de los ambientes).",
+                    "RuleCollectionGroup": "RCG-NET-TRV-I",
+                    "Priority": 1000.0,
+                    "RuleCollectionName": "rc-az-vnet's-hubtrv-to-spokes",
+                    "RulePriority": 100.0,
+                    "ActionType": "Allow",
+                    "RuleConnectionType": "FirewallPolicyFilterRuleCollection",
+                    "Name": "rule-agw-secuty-public-centrl-trv-i-to-spokes-snet-api",
+                    "Protocols": "TCP",
+                    "SourceAddresses": "10.204.0.0/26",
+                    "DestinationAddresses": "",
+                    "SourceIPGroups": "",
+                    "DestinationIPGroups": "/ipg-secuty-privte-azsnet-apim",
+                    "DestinationPorts": 443,
+                    "DestinationFQDNs": ""
+                }
+            ]
+        }
+    }
+}
