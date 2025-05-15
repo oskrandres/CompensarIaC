@@ -1,7 +1,7 @@
 
 param location string = resourceGroup().location
 param publicFirewallIPName string
-param fiewallPolicyName string
+param firewallPolicyName string
 param tags object
 param zones array
 param firewallVnet string
@@ -23,11 +23,11 @@ resource publicIp 'Microsoft.Network/publicIPAddresses@2023-04-01' = {
 }
 
 resource afp 'Microsoft.Network/firewallPolicies@2024-01-01' = {
-  name: fiewallPolicyName
+  name: firewallPolicyName
   location: location
   properties: {
     sku: {
-      tier: 'Standard'
+      tier: 'Premium'
     }
     threatIntelMode: 'Alert'
     threatIntelWhitelist: {
@@ -35,6 +35,18 @@ resource afp 'Microsoft.Network/firewallPolicies@2024-01-01' = {
       ipAddresses: []
     }
   }
+}
+
+module afw 'AzureFirewallPolicy.bicep' = {
+  name: 'AzureFirewallDeploy'
+  scope: resourceGroup()
+  params: {
+    firewallPolicyName: firewallPolicyName
+  }
+
+  dependsOn: [
+    afp
+  ]
 }
 
 resource vnet 'Microsoft.Network/virtualNetworks@2024-01-01' existing = {
@@ -48,14 +60,14 @@ resource snet 'Microsoft.Network/virtualNetworks/subnets@2024-01-01' existing = 
 }
 
 resource firewall 'Microsoft.Network/azureFirewalls@2024-01-01' = {
-  name: fiewallPolicyName
+  name: firewallPolicyName
   location: location
   tags: tags
   zones:zones
   properties: {
     sku: {
       name: 'AZFW_VNet'
-      tier: 'Standard'
+      tier: 'Premium'
     }
     threatIntelMode: 'Alert'
     additionalProperties: {}

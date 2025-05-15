@@ -12,7 +12,7 @@
         "publicFirewallIPName":{
             "value": "pip-afw-secuty-public-centrl-trv-i"
         },
-        "fiewallPolicyName":{
+        "firewallPolicyName":{
             "value": "afwp-afw-secuty-public-centrl-trv-i"
         },
         "routeTableName": {

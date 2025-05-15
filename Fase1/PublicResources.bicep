@@ -11,7 +11,7 @@ param routes array
 
 // Parametros de Azure Firewall
 param publicFirewallIPName string
-param fiewallPolicyName string
+param firewallPolicyName string
 param zones array
 param firewallVnet string
 param firewallSubnet string
@@ -54,7 +54,7 @@ module afw 'modules/AzureFirewall.bicep' = {
   params: {
     location: resourceGroup().location
     publicFirewallIPName: publicFirewallIPName
-    fiewallPolicyName: fiewallPolicyName
+    firewallPolicyName: firewallPolicyName
     firewallVnet: firewallVnet
     firewallSubnet: firewallSubnet
     zones: zones
