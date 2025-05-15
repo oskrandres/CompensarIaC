@@ -42,6 +42,7 @@ resource afp 'Microsoft.Network/firewallPolicies@2024-01-01' = {
   }
 }
 
+
 module afw 'AzureFirewallPolicy.bicep' = {
   name: 'AzureFirewallDeploy'
   scope: resourceGroup()
