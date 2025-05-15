@@ -1,5 +1,5 @@
 
-param firewallPolicyName string =  'afwp-afw-secuty-public-centrl-trv-i'
+param firewallPolicyName string
 
 resource afp 'Microsoft.Network/firewallPolicies@2024-01-01' existing = {
   name: firewallPolicyName
