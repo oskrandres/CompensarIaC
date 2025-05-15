@@ -2,20 +2,29 @@
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
-    "name": {
-      "value": "vgw-secuty-public-exprte-trv-i"
-    },
     "location": {
       "value": "eastus"
     },
-    "publicIPAddressName": {
+    "vngName": {
+      "value": "vgw-secuty-public-exprte-trv-i"
+    },
+    "publicIpName": {
       "value": "pip-vgw-secuty-public-exprte-trv-i"
     },
-    "sku": {
-      "value": "ErGw1Az"
+    "vnetName": {
+      "value": "vnet-netwrk-centrl-main-trv-i"
     },
-    "virtualNetworkName": {
-      "value": "vgw-secuty-public-exprte-trv-i"
+    "vngSkuName": {
+      "value": "ErGw1AZ" //ajustar a 1 Az GEN2
+    },
+    "vngSkuTier": {
+      "value": "ErGw1AZ"
+    },
+    "gatewayType": {
+      "value": "ExpressRoute"
+    },
+    "vpnType": {
+      "value": "PolicyBased"
     }
   }
 }

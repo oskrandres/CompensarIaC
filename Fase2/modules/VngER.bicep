@@ -1,47 +1,73 @@
-param name string
-param location string
-param publicIPAddressName string
-param sku string
-param virtualNetworkName string
-//param tags object
+@description('Ubicación del recurso')
+param location string = resourceGroup().location
 
-// Recurso IP pública
-resource pip 'Microsoft.Network/publicIPAddresses@2023-09-01' = {
-  name: publicIPAddressName
+@description('Nombre del Virtual Network Gateway')
+param vngName string
+
+@description('Nombre de la IP pública')
+param publicIpName string
+
+@description('Nombre de la VNet')
+param vnetName string
+
+@description('SKU del Virtual Network Gateway')
+param vngSkuName string
+
+@description('Tier del Virtual Network Gateway')
+param vngSkuTier string
+
+@description('Tipo de Gateway')
+param gatewayType string
+
+@description('Tipo de VPN')
+param vpnType string
+
+resource vnet 'Microsoft.Network/virtualNetworks@2023-04-01' existing = {
+  name: vnetName
+  scope: resourceGroup()
+}
+
+resource publicIp 'Microsoft.Network/publicIPAddresses@2023-04-01' = {
+  name: publicIpName
   location: location
-  //tags: tags
   sku: {
     name: 'Standard'
   }
   properties: {
+    publicIPAddressVersion: 'IPv4'
     publicIPAllocationMethod: 'Static'
+    idleTimeoutInMinutes: 4
+    ddosSettings: {
+      protectionMode: 'VirtualNetworkInherited'
+    }
   }
 }
 
-// ExpressRoute Virtual Network Gateway reutilizando VNet existente
-resource expressRouteVng 'Microsoft.Network/virtualNetworkGateways@2023-02-01' = {
-  name: name
+resource vng 'Microsoft.Network/virtualNetworkGateways@2023-04-01' = {
+  name: vngName
   location: location
-  //tags: tags
   properties: {
-    gatewayType: 'ExpressRoute'
     ipConfigurations: [
       {
-        name: 'default'
+        name: 'vnetGatewayConfig'
         properties: {
           privateIPAllocationMethod: 'Dynamic'
-          subnet: {
-            id: resourceId('Microsoft.Network/virtualNetworks/subnets', virtualNetworkName, 'GatewaySubnet')
-          }
           publicIPAddress: {
-            id: pip.id
+            id: publicIp.id
+          }
+          subnet: {
+            id: '${vnet.id}/subnets/GatewaySubnet'
           }
         }
       }
     ]
+    gatewayType: gatewayType
+    vpnType: vpnType
+    enableBgp: false
+    activeActive: false
     sku: {
-      name: sku
-      tier: sku
+      name: vngSkuName
+      tier: vngSkuTier
     }
   }
 }

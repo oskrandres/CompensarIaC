@@ -1,0 +1,21 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "location": {
+      "value": "eastus"
+    },
+    "vngName": {
+      "value": "vgw-secuty-public-exprte-trv-i"
+    },
+    "connectionName": {
+      "value": "dummy-connection"
+    },
+    "expressRouteCircuitId": {
+      "value": "/subscriptions/dummy-subscription/resourceGroups/dummy-rg/providers/Microsoft.Network/expressRouteCircuits/dummy-circuit"
+    },
+    "authorizationKey": {
+      "value": "dummy-authorization-key"
+    }
+  }
+}
