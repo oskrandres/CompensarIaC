@@ -1,0 +1,56 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "location": {
+      "value": "eastus"
+    },
+    "localNetworkGateways": {
+        "value": [
+            {
+                "name": "lgw-con-secuty-vpnsts-compensar-ccf-onpremise-trv-i",
+                "gatewayIpAddress": "190.143.65.198",
+                "addressPrefixes":[
+                    "10.82.0.0/19",
+                    "10.250.0.0/23",
+                    "10.254.0.0/20",
+                    "172.18.162.0/24",
+                    "192.168.0.0/16"
+                ]
+            },
+            {
+            "name": "lgw-con-secuty-vpnsts-compensar-ccf-aws-preprod-trv-i",
+                "gatewayIpAddress": "3.218.54.89",
+                "addressPrefixes":[
+                    "10.24.0.0/16"
+                ]
+            },
+            {
+            "name": "lgw-con-secuty-vpnsts-compensar-salud-azure-prod-trv-i",
+                "gatewayIpAddress": "52.138.120.126",
+                "addressPrefixes":[
+                    "172.27.150.0/23",
+                    "172.27.251.0/24"
+                ]
+            },
+            {
+            "name": "lgw-con-secuty-vpnsts-compensar-salud-azure-noprod-trv-i",
+                "gatewayIpAddress": "20.10.22.171",
+                "addressPrefixes":[
+                    "172.27.216.0/21",
+                    "172.27.224.0/23",
+                    "172.27.232.0/23",
+                    "172.27.234.0/24"
+                ]
+            },
+            {
+            "name": "lgw-con-secuty-vpnsts-ciel-azure-digiturno-trv-i",
+                "gatewayIpAddress": "40.77.5.149",
+                "addressPrefixes":[
+                    "10.204.224.0/26"
+                ]
+            }
+        ]
+    }
+  }
+}
