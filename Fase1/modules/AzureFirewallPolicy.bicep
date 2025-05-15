@@ -58,6 +58,10 @@ resource afp_ApplicationRuleCollectionGroup_TERCEROS 'Microsoft.Network/firewall
       }
     ]
   }
+
+  dependsOn: [
+    afp_ApplicationRule_NUEVAS_REGLAS_MIGRACION
+  ]
 }
 
 resource afp_NetworkRule_NUEVAS_REGLAS_MIGRACION 'Microsoft.Network/firewallPolicies/ruleCollectionGroups@2024-05-01' = {
@@ -488,6 +492,11 @@ resource afp_NetworkRule_NUEVAS_REGLAS_MIGRACION 'Microsoft.Network/firewallPoli
       }
     ]
   }
+
+  dependsOn: [
+    afp_ApplicationRule_NUEVAS_REGLAS_MIGRACION
+    afp_ApplicationRuleCollectionGroup_TERCEROS
+  ]
 }
 
 resource afp_NetworkRuleCollectionGroup_DEV_IaC 'Microsoft.Network/firewallPolicies/ruleCollectionGroups@2024-05-01' = {
@@ -976,6 +985,12 @@ resource afp_NetworkRuleCollectionGroup_DEV_IaC 'Microsoft.Network/firewallPolic
       }
     ]
   }
+
+  dependsOn: [
+    afp_ApplicationRule_NUEVAS_REGLAS_MIGRACION
+    afp_ApplicationRuleCollectionGroup_TERCEROS
+    afp_NetworkRule_NUEVAS_REGLAS_MIGRACION    
+  ]  
 }
 
 resource afp_NetworkRuleCollectionGroup_EXTERNAL 'Microsoft.Network/firewallPolicies/ruleCollectionGroups@2024-05-01' = {
@@ -1026,6 +1041,13 @@ resource afp_NetworkRuleCollectionGroup_EXTERNAL 'Microsoft.Network/firewallPoli
       }
     ]
   }
+
+    dependsOn: [
+    afp_ApplicationRule_NUEVAS_REGLAS_MIGRACION
+    afp_ApplicationRuleCollectionGroup_TERCEROS
+    afp_NetworkRule_NUEVAS_REGLAS_MIGRACION    
+    afp_NetworkRuleCollectionGroup_DEV_IaC
+  ]  
 }
 
 resource afp_NetworkRuleCollectionGroup_GLOBAL 'Microsoft.Network/firewallPolicies/ruleCollectionGroups@2024-05-01' = {
@@ -1243,6 +1265,14 @@ resource afp_NetworkRuleCollectionGroup_GLOBAL 'Microsoft.Network/firewallPolici
       }
     ]
   }
+
+      dependsOn: [
+    afp_ApplicationRule_NUEVAS_REGLAS_MIGRACION
+    afp_ApplicationRuleCollectionGroup_TERCEROS
+    afp_NetworkRule_NUEVAS_REGLAS_MIGRACION    
+    afp_NetworkRuleCollectionGroup_DEV_IaC
+    afp_NetworkRuleCollectionGroup_EXTERNAL
+  ]  
 }
 
 resource afp_NetworkRuleCollectionGroup_MGMNT 'Microsoft.Network/firewallPolicies/ruleCollectionGroups@2024-05-01' = {
@@ -1511,6 +1541,15 @@ resource afp_NetworkRuleCollectionGroup_MGMNT 'Microsoft.Network/firewallPolicie
       }
     ]
   }
+
+  dependsOn: [
+    afp_ApplicationRule_NUEVAS_REGLAS_MIGRACION
+    afp_ApplicationRuleCollectionGroup_TERCEROS
+    afp_NetworkRule_NUEVAS_REGLAS_MIGRACION    
+    afp_NetworkRuleCollectionGroup_DEV_IaC
+    afp_NetworkRuleCollectionGroup_EXTERNAL
+    afp_NetworkRuleCollectionGroup_GLOBAL
+  ]  
 }
 
 resource afp_NetworkRuleCollectionGroup_PROD_IaC 'Microsoft.Network/firewallPolicies/ruleCollectionGroups@2024-05-01' = {
@@ -1983,6 +2022,16 @@ resource afp_NetworkRuleCollectionGroup_PROD_IaC 'Microsoft.Network/firewallPoli
       }
     ]
   }
+
+  dependsOn: [
+    afp_ApplicationRule_NUEVAS_REGLAS_MIGRACION
+    afp_ApplicationRuleCollectionGroup_TERCEROS
+    afp_NetworkRule_NUEVAS_REGLAS_MIGRACION    
+    afp_NetworkRuleCollectionGroup_DEV_IaC
+    afp_NetworkRuleCollectionGroup_EXTERNAL
+    afp_NetworkRuleCollectionGroup_GLOBAL
+    afp_NetworkRuleCollectionGroup_MGMNT
+  ]    
 }
 
 resource afp_NetworkRuleCollectionGroup_TEST 'Microsoft.Network/firewallPolicies/ruleCollectionGroups@2024-05-01' = {
@@ -2058,6 +2107,17 @@ resource afp_NetworkRuleCollectionGroup_TEST 'Microsoft.Network/firewallPolicies
       }
     ]
   }
+
+  dependsOn: [
+    afp_ApplicationRule_NUEVAS_REGLAS_MIGRACION
+    afp_ApplicationRuleCollectionGroup_TERCEROS
+    afp_NetworkRule_NUEVAS_REGLAS_MIGRACION    
+    afp_NetworkRuleCollectionGroup_DEV_IaC
+    afp_NetworkRuleCollectionGroup_EXTERNAL
+    afp_NetworkRuleCollectionGroup_GLOBAL
+    afp_NetworkRuleCollectionGroup_MGMNT
+    afp_NetworkRuleCollectionGroup_PROD_IaC
+  ]     
 }
 
 resource afp_NetworkRuleCollectionGroup_TEST_IaC 'Microsoft.Network/firewallPolicies/ruleCollectionGroups@2024-05-01' = {
@@ -2614,6 +2674,18 @@ resource afp_NetworkRuleCollectionGroup_TEST_IaC 'Microsoft.Network/firewallPoli
       }
     ]
   }
+
+    dependsOn: [
+    afp_ApplicationRule_NUEVAS_REGLAS_MIGRACION
+    afp_ApplicationRuleCollectionGroup_TERCEROS
+    afp_NetworkRule_NUEVAS_REGLAS_MIGRACION    
+    afp_NetworkRuleCollectionGroup_DEV_IaC
+    afp_NetworkRuleCollectionGroup_EXTERNAL
+    afp_NetworkRuleCollectionGroup_GLOBAL
+    afp_NetworkRuleCollectionGroup_MGMNT
+    afp_NetworkRuleCollectionGroup_PROD_IaC
+    afp_NetworkRuleCollectionGroup_TEST
+  ] 
 }
 
 resource afp_NetworkRuleCollectionGroup_TRV_IaC 'Microsoft.Network/firewallPolicies/ruleCollectionGroups@2024-05-01' = {
@@ -3108,4 +3180,17 @@ resource afp_NetworkRuleCollectionGroup_TRV_IaC 'Microsoft.Network/firewallPolic
       }
     ]
   }
+
+      dependsOn: [
+    afp_ApplicationRule_NUEVAS_REGLAS_MIGRACION
+    afp_ApplicationRuleCollectionGroup_TERCEROS
+    afp_NetworkRule_NUEVAS_REGLAS_MIGRACION    
+    afp_NetworkRuleCollectionGroup_DEV_IaC
+    afp_NetworkRuleCollectionGroup_EXTERNAL
+    afp_NetworkRuleCollectionGroup_GLOBAL
+    afp_NetworkRuleCollectionGroup_MGMNT
+    afp_NetworkRuleCollectionGroup_PROD_IaC
+    afp_NetworkRuleCollectionGroup_TEST
+    afp_NetworkRuleCollectionGroup_TEST_IaC
+  ] 
 }
