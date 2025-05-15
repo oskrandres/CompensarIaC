@@ -29,6 +29,11 @@ resource afp 'Microsoft.Network/firewallPolicies@2024-01-01' = {
     sku: {
       tier: 'Premium'
     }
+    dnsSettings: {
+      enableProxy: true
+      requireProxyForNetworkRules: true
+      servers: []
+    }
     threatIntelMode: 'Alert'
     threatIntelWhitelist: {
       fqdns: []
