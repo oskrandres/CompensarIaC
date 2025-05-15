@@ -2,11 +2,27 @@
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "location": {
-            "value": "eastus"
+        "logAnalyticsWorkspaceName": {
+            "value": "log-secuty-public-centrl-trv-i"
+        },
+        "logAnalyticsSKU": {
+            "value": "PerGB2018"
+        },
+
+        "publicFirewallIPName":{
+            "value": "pip-afw-secuty-public-centrl-trv-i"
+        },
+        "fiewallPolicyName":{
+            "value": "afwp-afw-secuty-public-centrl-trv-i"
         },
         "routeTableName": {
             "value": "rt-snet-GatewaySubnet-trv-i"
+        },
+        "firewallVnet":{
+            "value": "vnet-netwrk-centrl-main-trv-i"
+        },
+        "firewallSubnet":{
+            "value": "AzureFirewallSubnet"
         },
         "routes": {
             "value": [
@@ -251,6 +267,9 @@
                     }
                 }
             ]
+        },
+        "zones":{
+            "value": [1,2,3]
         }
     }
 }

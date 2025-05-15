@@ -1,28 +1,29 @@
 
 param location string = resourceGroup().location
-param firewallName string
-param publicIpName string
-param vnetName string
-param subnetName string
-param policyName string
-//param tags object
+param publicFirewallIPName string
+param fiewallPolicyName string
+param tags object
+param zones array
+param firewallVnet string
+param firewallSubnet string
 
+// Parametros de la IP Publica
 resource publicIp 'Microsoft.Network/publicIPAddresses@2023-04-01' = {
-  name: publicIpName
+  name: publicFirewallIPName
   location: location
   sku: {
     name: 'Standard'
+    tier: 'Regional'
   }
+  zones: zones
   properties: {
     publicIPAllocationMethod: 'Static'
   }
-  //tags: tags
+  tags: tags
 }
 
-//esta parte de se debe ajustar para que incluya las reglas del json
-
 resource afp 'Microsoft.Network/firewallPolicies@2024-01-01' = {
-  name: policyName
+  name: fiewallPolicyName
   location: location
   properties: {
     sku: {
@@ -36,30 +37,48 @@ resource afp 'Microsoft.Network/firewallPolicies@2024-01-01' = {
   }
 }
 
-resource firewall 'Microsoft.Network/azureFirewalls@2023-04-01' = {
-  name: firewallName
+resource vnet 'Microsoft.Network/virtualNetworks@2024-01-01' existing = {
+  name:firewallVnet
+  scope:resourceGroup()
+}
+
+resource snet 'Microsoft.Network/virtualNetworks/subnets@2024-01-01' existing = {
+  name:firewallSubnet
+  parent:vnet
+}
+
+resource firewall 'Microsoft.Network/azureFirewalls@2024-01-01' = {
+  name: fiewallPolicyName
   location: location
+  tags: tags
+  zones:zones
   properties: {
     sku: {
       name: 'AZFW_VNet'
       tier: 'Standard'
     }
+    threatIntelMode: 'Alert'
+    additionalProperties: {}
     ipConfigurations: [
       {
-        name: 'azureFirewallIpConfiguration'
+        name: publicIp.name
         properties: {
-          subnet: {
-            id: resourceId('Microsoft.Network/virtualNetworks/subnets', vnetName, subnetName)
-          }
           publicIPAddress: {
             id: publicIp.id
+          }
+          subnet: {
+            id: snet.id
           }
         }
       }
     ]
     firewallPolicy: {
-      id: resourceId('Microsoft.Network/firewallPolicies', policyName)
+      id: afp.id
     }
   }
-  //tags: tags
+
+  dependsOn: [
+    vnet
+    snet
+  ]
 }
