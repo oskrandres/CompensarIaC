@@ -70,12 +70,12 @@ resource afp_RCG_NET_AUDIT_SCAN 'Microsoft.Network/firewallPolicies/ruleCollecti
               '192.168.173.162'
             ]
             destinationIpGroups: [
-              '/ipg-secuty-privte-azvnet-dvl-i'
-              '/ipg-secuty-privte-azvnet-tst-i'
-              '/ipg-secuty-privte-azvnet-prp-i'
-              '/ipg-secuty-privte-azvnet-prd-i'
-              '/ipg-secuty-privte-azvnet-trv-i'
-              '/ipg-secuty-privte-azvnet-poc-i'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-azvnet-dvl-i'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-azvnet-tst-i'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-azvnet-prp-i'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-azvnet-prd-i'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-azvnet-trv-i'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-azvnet-poc-i'
             ]
             destinationPorts: [
               '*'
@@ -92,12 +92,12 @@ resource afp_RCG_NET_AUDIT_SCAN 'Microsoft.Network/firewallPolicies/ruleCollecti
               '192.168.204.246'
             ]
             destinationIpGroups: [
-              '/ipg-secuty-privte-azvnet-dvl-i'
-              '/ipg-secuty-privte-azvnet-tst-i'
-              '/ipg-secuty-privte-azvnet-prp-i'
-              '/ipg-secuty-privte-azvnet-prd-i'
-              '/ipg-secuty-privte-azvnet-trv-i'
-              '/ipg-secuty-privte-azvnet-poc-i'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-azvnet-dvl-i'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-azvnet-tst-i'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-azvnet-prp-i'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-azvnet-prd-i'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-azvnet-trv-i'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-azvnet-poc-i'
             ]
             destinationPorts: [
               '*'
@@ -113,12 +113,12 @@ resource afp_RCG_NET_AUDIT_SCAN 'Microsoft.Network/firewallPolicies/ruleCollecti
               '192.168.204.86'
             ]
             destinationIpGroups: [
-              '/ipg-secuty-privte-azvnet-dvl-i'
-              '/ipg-secuty-privte-azvnet-tst-i'
-              '/ipg-secuty-privte-azvnet-prp-i'
-              '/ipg-secuty-privte-azvnet-prd-i'
-              '/ipg-secuty-privte-azvnet-trv-i'
-              '/ipg-secuty-privte-azvnet-poc-i'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-azvnet-dvl-i'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-azvnet-tst-i'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-azvnet-prp-i'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-azvnet-prd-i'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-azvnet-trv-i'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-azvnet-poc-i'
             ]
             destinationPorts: [
               '*'
@@ -155,12 +155,12 @@ resource afp_RCG_NET_COMMON 'Microsoft.Network/firewallPolicies/ruleCollectionGr
               '10.204.3.6'
             ]
             destinationIpGroups: [
-              '/ipg-secuty-privte-azvnet-dvl-i'
-              '/ipg-secuty-privte-azvnet-tst-i'
-              '/ipg-secuty-privte-azvnet-prp-i'
-              '/ipg-secuty-privte-azvnet-prd-i'
-              '/ipg-secuty-privte-azvnet-trv-i'
-              '/ipg-secuty-privte-azvnet-poc-i'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-azvnet-dvl-i'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-azvnet-tst-i'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-azvnet-prp-i'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-azvnet-prd-i'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-azvnet-trv-i'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-azvnet-poc-i'
             ]
             destinationPorts: [
               '22'
@@ -198,7 +198,7 @@ resource afp_RCG_NET_COMMON 'Microsoft.Network/firewallPolicies/ruleCollectionGr
               '10.204.3.6'
             ]
             destinationIpGroups: [
-              '/ipg-secuty-privte-azsnet-db'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-azsnet-db'
             ]
             destinationPorts: [
               '20000-30000'
@@ -216,7 +216,7 @@ resource afp_RCG_NET_COMMON 'Microsoft.Network/firewallPolicies/ruleCollectionGr
               '192.168.204.227'
             ]
             destinationIpGroups: [
-              '/ipg-secuty-privte-azsnet-db'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-azsnet-db'
             ]
             destinationPorts: [
               '1433'
@@ -259,15 +259,15 @@ resource afp_RCG_NET_COMMON 'Microsoft.Network/firewallPolicies/ruleCollectionGr
               'TCP,UDP'
             ]
             sourceIpGroups: [
-              '/ipg-secuty-privte-azvnet-dvl-i'
-              '/ipg-secuty-privte-azvnet-tst-i'
-              '/ipg-secuty-privte-azvnet-prp-i'
-              '/ipg-secuty-privte-azvnet-prd-i'
-              '/ipg-secuty-privte-azvnet-trv-i'
-              '/ipg-secuty-privte-azvnet-poc-i'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-azvnet-dvl-i'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-azvnet-tst-i'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-azvnet-prp-i'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-azvnet-prd-i'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-azvnet-trv-i'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-azvnet-poc-i'
             ]
             destinationIpGroups: [
-              '/ipg-secuty-privte-azsnet-dmctrl'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-azsnet-dmctrl'
             ]
             destinationPorts: [
               '53'
@@ -280,15 +280,15 @@ resource afp_RCG_NET_COMMON 'Microsoft.Network/firewallPolicies/ruleCollectionGr
               'TCP,UDP'
             ]
             sourceIpGroups: [
-              '/ipg-secuty-privte-azvnet-dvl-i'
-              '/ipg-secuty-privte-azvnet-tst-i'
-              '/ipg-secuty-privte-azvnet-prp-i'
-              '/ipg-secuty-privte-azvnet-prd-i'
-              '/ipg-secuty-privte-azvnet-trv-i'
-              '/ipg-secuty-privte-azvnet-poc-i'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-azvnet-dvl-i'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-azvnet-tst-i'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-azvnet-prp-i'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-azvnet-prd-i'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-azvnet-trv-i'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-azvnet-poc-i'
             ]
             destinationIpGroups: [
-              '/ipg-secuty-privte-opvlan-dmctrl'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-opvlan-dmctrl'
             ]
             destinationPorts: [
               '53'
@@ -306,12 +306,12 @@ resource afp_RCG_NET_COMMON 'Microsoft.Network/firewallPolicies/ruleCollectionGr
               '8.8.8.8'
             ]
             sourceIpGroups: [
-              '/ipg-secuty-privte-azvnet-dvl-i'
-              '/ipg-secuty-privte-azvnet-tst-i'
-              '/ipg-secuty-privte-azvnet-prp-i'
-              '/ipg-secuty-privte-azvnet-prd-i'
-              '/ipg-secuty-privte-azvnet-trv-i'
-              '/ipg-secuty-privte-azvnet-poc-i'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-azvnet-dvl-i'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-azvnet-tst-i'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-azvnet-prp-i'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-azvnet-prd-i'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-azvnet-trv-i'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-azvnet-poc-i'
             ]
             destinationPorts: [
               '53'
@@ -324,14 +324,14 @@ resource afp_RCG_NET_COMMON 'Microsoft.Network/firewallPolicies/ruleCollectionGr
               'TCP,UDP'
             ]
             sourceIpGroups: [
-              '/ipg-secuty-privte-azvnet-trv-i'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-azvnet-trv-i'
             ]
             destinationIpGroups: [
-              '/ipg-secuty-privte-azvnet-dvl-i'
-              '/ipg-secuty-privte-azvnet-tst-i'
-              '/ipg-secuty-privte-azvnet-prp-i'
-              '/ipg-secuty-privte-azvnet-prd-i'
-              '/ipg-secuty-privte-azvnet-poc-i'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-azvnet-dvl-i'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-azvnet-tst-i'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-azvnet-prp-i'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-azvnet-prd-i'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-azvnet-poc-i'
             ]
             destinationPorts: [
               '53'
@@ -344,14 +344,14 @@ resource afp_RCG_NET_COMMON 'Microsoft.Network/firewallPolicies/ruleCollectionGr
               'TCP,UDP'
             ]
             sourceIpGroups: [
-              '/ipg-secuty-privte-azvnet-dvl-i'
-              '/ipg-secuty-privte-azvnet-tst-i'
-              '/ipg-secuty-privte-azvnet-prp-i'
-              '/ipg-secuty-privte-azvnet-prd-i'
-              '/ipg-secuty-privte-azvnet-poc-i'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-azvnet-dvl-i'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-azvnet-tst-i'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-azvnet-prp-i'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-azvnet-prd-i'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-azvnet-poc-i'
             ]
             destinationIpGroups: [
-              '/ipg-secuty-privte-azvnet-trv-i'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-azvnet-trv-i'
             ]
             destinationPorts: [
               '53'
@@ -367,7 +367,7 @@ resource afp_RCG_NET_COMMON 'Microsoft.Network/firewallPolicies/ruleCollectionGr
               '10.204.2.0/25'
             ]
             destinationIpGroups: [
-              '/ipg-secuty-privte-opvlan-dmctrl'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-opvlan-dmctrl'
             ]
             destinationPorts: [
               '53'
@@ -383,7 +383,7 @@ resource afp_RCG_NET_COMMON 'Microsoft.Network/firewallPolicies/ruleCollectionGr
               '10.204.2.0/25'
             ]
             sourceIpGroups: [
-              '/ipg-secuty-privte-opvlan-dmctrl'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-opvlan-dmctrl'
             ]
             destinationPorts: [
               '53'
@@ -406,15 +406,15 @@ resource afp_RCG_NET_COMMON 'Microsoft.Network/firewallPolicies/ruleCollectionGr
               'TCP,UDP'
             ]
             sourceIpGroups: [
-              '/ipg-secuty-privte-azvnet-dvl-i'
-              '/ipg-secuty-privte-azvnet-tst-i'
-              '/ipg-secuty-privte-azvnet-prp-i'
-              '/ipg-secuty-privte-azvnet-prd-i'
-              '/ipg-secuty-privte-azvnet-trv-i'
-              '/ipg-secuty-privte-azvnet-poc-i'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-azvnet-dvl-i'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-azvnet-tst-i'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-azvnet-prp-i'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-azvnet-prd-i'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-azvnet-trv-i'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-azvnet-poc-i'
             ]
             destinationIpGroups: [
-              '/ipg-secuty-privte-opvlan-dmctrl'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-opvlan-dmctrl'
             ]
             destinationPorts: [
               '42'
@@ -445,15 +445,15 @@ resource afp_RCG_NET_COMMON 'Microsoft.Network/firewallPolicies/ruleCollectionGr
               'TCP,UDP'
             ]
             sourceIpGroups: [
-              '/ipg-secuty-privte-opvlan-dmctrl'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-opvlan-dmctrl'
             ]
             destinationIpGroups: [
-              '/ipg-secuty-privte-azvnet-dvl-i'
-              '/ipg-secuty-privte-azvnet-tst-i'
-              '/ipg-secuty-privte-azvnet-prp-i'
-              '/ipg-secuty-privte-azvnet-prd-i'
-              '/ipg-secuty-privte-azvnet-trv-i'
-              '/ipg-secuty-privte-azvnet-poc-i'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-azvnet-dvl-i'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-azvnet-tst-i'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-azvnet-prp-i'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-azvnet-prd-i'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-azvnet-trv-i'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-azvnet-poc-i'
             ]
             destinationPorts: [
               '42'
@@ -484,15 +484,15 @@ resource afp_RCG_NET_COMMON 'Microsoft.Network/firewallPolicies/ruleCollectionGr
               'TCP,UDP'
             ]
             sourceIpGroups: [
-              '/ipg-secuty-privte-azvnet-dvl-i'
-              '/ipg-secuty-privte-azvnet-tst-i'
-              '/ipg-secuty-privte-azvnet-prp-i'
-              '/ipg-secuty-privte-azvnet-prd-i'
-              '/ipg-secuty-privte-azvnet-trv-i'
-              '/ipg-secuty-privte-azvnet-poc-i'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-azvnet-dvl-i'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-azvnet-tst-i'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-azvnet-prp-i'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-azvnet-prd-i'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-azvnet-trv-i'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-azvnet-poc-i'
             ]
             destinationIpGroups: [
-              '/ipg-secuty-privte-azsnet-dmctrl'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-azsnet-dmctrl'
             ]
             destinationPorts: [
               '42'
@@ -523,15 +523,15 @@ resource afp_RCG_NET_COMMON 'Microsoft.Network/firewallPolicies/ruleCollectionGr
               'TCP,UDP'
             ]
             sourceIpGroups: [
-              '/ipg-secuty-privte-azsnet-dmctrl'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-azsnet-dmctrl'
             ]
             destinationIpGroups: [
-              '/ipg-secuty-privte-azvnet-dvl-i'
-              '/ipg-secuty-privte-azvnet-tst-i'
-              '/ipg-secuty-privte-azvnet-prp-i'
-              '/ipg-secuty-privte-azvnet-prd-i'
-              '/ipg-secuty-privte-azvnet-trv-i'
-              '/ipg-secuty-privte-azvnet-poc-i'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-azvnet-dvl-i'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-azvnet-tst-i'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-azvnet-prp-i'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-azvnet-prd-i'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-azvnet-trv-i'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-azvnet-poc-i'
             ]
             destinationPorts: [
               '42'
@@ -576,12 +576,12 @@ resource afp_RCG_NET_COMMON 'Microsoft.Network/firewallPolicies/ruleCollectionGr
               '192.168.204.99'
             ]
             sourceIpGroups: [
-              '/ipg-secuty-privte-azvnet-dvl-i'
-              '/ipg-secuty-privte-azvnet-tst-i'
-              '/ipg-secuty-privte-azvnet-prp-i'
-              '/ipg-secuty-privte-azvnet-prd-i'
-              '/ipg-secuty-privte-azvnet-trv-i'
-              '/ipg-secuty-privte-azvnet-poc-i'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-azvnet-dvl-i'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-azvnet-tst-i'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-azvnet-prp-i'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-azvnet-prd-i'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-azvnet-trv-i'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-azvnet-poc-i'
             ]
             destinationPorts: [
               '80'
@@ -945,7 +945,7 @@ resource afp_RCG_NET_INTERNET 'Microsoft.Network/firewallPolicies/ruleCollection
               '13.92.0.0/16'
             ]
             sourceIpGroups: [
-              '/ipg-secuty-privte-azsnet-apim'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-azsnet-apim'
             ]
             destinationPorts: [
               '1886'
@@ -961,7 +961,7 @@ resource afp_RCG_NET_INTERNET 'Microsoft.Network/firewallPolicies/ruleCollection
               '40.70.0.0/16'
             ]
             sourceIpGroups: [
-              '/ipg-secuty-privte-azsnet-dbw'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-azsnet-dbw'
             ]
             destinationPorts: [
               '1433'
@@ -989,12 +989,12 @@ resource afp_RCG_NET_INTERNET 'Microsoft.Network/firewallPolicies/ruleCollection
               '20.110.121.0/24'
             ]
             sourceIpGroups: [
-              '/ipg-secuty-privte-azvnet-dvl-i'
-              '/ipg-secuty-privte-azvnet-tst-i'
-              '/ipg-secuty-privte-azvnet-prp-i'
-              '/ipg-secuty-privte-azvnet-prd-i'
-              '/ipg-secuty-privte-azvnet-trv-i'
-              '/ipg-secuty-privte-azvnet-poc-i'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-azvnet-dvl-i'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-azvnet-tst-i'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-azvnet-prp-i'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-azvnet-prd-i'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-azvnet-trv-i'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-azvnet-poc-i'
             ]
             destinationPorts: [
               '443'
@@ -1039,7 +1039,7 @@ resource afp_RCG_NET_MGMT 'Microsoft.Network/firewallPolicies/ruleCollectionGrou
               '192.168.204.180'
             ]
             destinationIpGroups: [
-              '/ipg-secuty-privte-azsnet-dmz'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-azsnet-dmz'
             ]
             destinationPorts: [
               '22'
@@ -1067,7 +1067,7 @@ resource afp_RCG_NET_MGMT 'Microsoft.Network/firewallPolicies/ruleCollectionGrou
               '192.168.204.180'
             ]
             destinationIpGroups: [
-              '/ipg-secuty-privte-azsnet-app'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-azsnet-app'
             ]
             destinationPorts: [
               '22'
@@ -1092,12 +1092,12 @@ resource afp_RCG_NET_MGMT 'Microsoft.Network/firewallPolicies/ruleCollectionGrou
               '192.168.240.0/21'
             ]
             destinationIpGroups: [
-              '/ipg-secuty-privte-azvnet-dvl-i'
-              '/ipg-secuty-privte-azvnet-tst-i'
-              '/ipg-secuty-privte-azvnet-prp-i'
-              '/ipg-secuty-privte-azvnet-prd-i'
-              '/ipg-secuty-privte-azvnet-trv-i'
-              '/ipg-secuty-privte-azvnet-poc-i'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-azvnet-dvl-i'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-azvnet-tst-i'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-azvnet-prp-i'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-azvnet-prd-i'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-azvnet-trv-i'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-azvnet-poc-i'
             ]
             destinationPorts: [
               '22'
@@ -1122,15 +1122,15 @@ resource afp_RCG_NET_MGMT 'Microsoft.Network/firewallPolicies/ruleCollectionGrou
               'TCP'
             ]
             sourceIpGroups: [
-              '/ipg-secuty-privte-opvlan-vpnsec'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-opvlan-vpnsec'
             ]
             destinationIpGroups: [
-              '/ipg-secuty-privte-azvnet-dvl-i'
-              '/ipg-secuty-privte-azvnet-tst-i'
-              '/ipg-secuty-privte-azvnet-prp-i'
-              '/ipg-secuty-privte-azvnet-prd-i'
-              '/ipg-secuty-privte-azvnet-trv-i'
-              '/ipg-secuty-privte-azvnet-poc-i'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-azvnet-dvl-i'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-azvnet-tst-i'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-azvnet-prp-i'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-azvnet-prd-i'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-azvnet-trv-i'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-azvnet-poc-i'
             ]
             destinationPorts: [
               '22'
@@ -1145,10 +1145,10 @@ resource afp_RCG_NET_MGMT 'Microsoft.Network/firewallPolicies/ruleCollectionGrou
               'TCP'
             ]
             sourceIpGroups: [
-              '/ipg-secuty-privte-opvlan-vpnsec'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-opvlan-vpnsec'
             ]
             destinationIpGroups: [
-              '/ipg-secuty-privte-azsnet-dmz'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-azsnet-dmz'
             ]
             destinationPorts: [
               '22'
@@ -1167,10 +1167,10 @@ resource afp_RCG_NET_MGMT 'Microsoft.Network/firewallPolicies/ruleCollectionGrou
               'TCP'
             ]
             sourceIpGroups: [
-              '/ipg-secuty-privte-opvlan-vpnsec'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-opvlan-vpnsec'
             ]
             destinationIpGroups: [
-              '/ipg-secuty-privte-azsnet-app'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-azsnet-app'
             ]
             destinationPorts: [
               '22'
@@ -1189,10 +1189,10 @@ resource afp_RCG_NET_MGMT 'Microsoft.Network/firewallPolicies/ruleCollectionGrou
               'TCP'
             ]
             sourceIpGroups: [
-              '/ipg-secuty-privte-opvlan-vpnsec'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-opvlan-vpnsec'
             ]
             destinationIpGroups: [
-              '/ipg-secuty-privte-azsnet-db'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-azsnet-db'
             ]
             destinationPorts: [
               '135'
@@ -1215,10 +1215,10 @@ resource afp_RCG_NET_MGMT 'Microsoft.Network/firewallPolicies/ruleCollectionGrou
               'TCP'
             ]
             sourceIpGroups: [
-              '/ipg-secuty-privte-opvlan-vpnsec'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-opvlan-vpnsec'
             ]
             destinationIpGroups: [
-              '/ipg-secuty-privte-azsnet-st'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-azsnet-st'
             ]
             destinationPorts: [
               '135'
@@ -1241,10 +1241,10 @@ resource afp_RCG_NET_MGMT 'Microsoft.Network/firewallPolicies/ruleCollectionGrou
               'TCP'
             ]
             sourceIpGroups: [
-              '/ipg-secuty-privte-opvlan-vpnsec'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-opvlan-vpnsec'
             ]
             destinationIpGroups: [
-              '/ipg-secuty-privte-azsnet-aks'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-azsnet-aks'
             ]
             destinationPorts: [
               '80'
@@ -1905,7 +1905,7 @@ resource afp_RCG_NET_TRV_I 'Microsoft.Network/firewallPolicies/ruleCollectionGro
               '10.204.0.0/26'
             ]
             destinationIpGroups: [
-              '/ipg-secuty-privte-azsnet-apim'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-azsnet-apim'
             ]
             destinationPorts: [
               '443'
@@ -1921,7 +1921,7 @@ resource afp_RCG_NET_TRV_I 'Microsoft.Network/firewallPolicies/ruleCollectionGro
               '10.204.0.0/26'
             ]
             destinationIpGroups: [
-              '/ipg-secuty-privte-azsnet-vault'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-azsnet-vault'
             ]
             destinationPorts: [
               '443'
@@ -1937,7 +1937,7 @@ resource afp_RCG_NET_TRV_I 'Microsoft.Network/firewallPolicies/ruleCollectionGro
               '10.204.0.0/26'
             ]
             destinationIpGroups: [
-              '/ipg-secuty-privte-azsnet-st'
+              '/subscriptions/18bf3718-f695-4c96-8d45-72dc2e617d2e/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroupscuty-privte-azsnet-st'
             ]
             destinationPorts: [
               '443'

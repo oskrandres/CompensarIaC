@@ -4,7 +4,9 @@ param resourceGroupIPGroups string = 'rg-platfr-secuty-privte-trv-i'
 var ipGroups = [
   {
     name: 'ipg-secuty-privte-azvnet-poc-i'
-    iplist: ['10.204.240.0/20']
+    iplist: [
+      '10.204.240.0/20'
+    ]
   }
   {
     name: 'ipg-secuty-privte-azvnet-dvl-i'
@@ -44,7 +46,9 @@ var ipGroups = [
   }
   {
     name: 'ipg-secuty-privte-azvnet-trv-i'
-    iplist: ['10.204.0.0/20']
+    iplist: [
+      '10.204.0.0/20'
+    ]
   }
   {
     name: 'ipg-secuty-privte-azsnet-dmz'
@@ -124,7 +128,9 @@ var ipGroups = [
   }
   {
     name: 'ipg-secuty-privte-azsnet-dmctrl'
-    iplist: ['10.204.3.4']
+    iplist: [
+      '10.204.3.4'
+    ]
   }
   {
     name: 'ipg-secuty-privte-opvlan-dmctrl'
@@ -170,8 +176,11 @@ var ipGroups = [
   }
   {
     name: 'ipg-secuty-privte-opvlan-wificp'
-    iplist: ['192.168.240.0/21']
+    iplist: [
+      '192.168.240.0/21'
+    ]
   }
+
 ]
 
 resource ipGroupsResources 'Microsoft.Network/ipGroups@2021-03-01' = [for ipg in ipGroups: {
@@ -196,5 +205,6 @@ resource ipGroupsResources 'Microsoft.Network/ipGroups@2021-03-01' = [for ipg in
     aplicacion_capacidad: 'Transversal Cloud TI'
     costos_inductor: 'Servicios Transversales'
     costos_unidad_negocio: 'CSC'
+
   }
 }]
