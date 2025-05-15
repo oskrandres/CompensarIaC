@@ -19,7 +19,7 @@ az deployment group create --resource-group rg-platfr-secuty-privte-trv-i --temp
 ### Limpieza
 
 ```powershell
-az group remove --name Compensar_Corp_Azure_Trv_I
-az group remove --name rg-platfr-secuty-privte-trv-i
-az group remove --name rg-platfr-secuty-public-trv-i
+az group delete --name Compensar_Corp_Azure_Trv_I
+az group delete --name rg-platfr-secuty-privte-trv-i
+az group delete --name rg-platfr-secuty-public-trv-i
 ```
