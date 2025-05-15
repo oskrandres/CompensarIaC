@@ -1,0 +1,42 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "vnetLocalName": {
+      "value": "vnet-netwrk-centrl-main-trv-i"
+    },
+    "vnetRemoteNames": {
+      "value": [
+        "vnet-netwrk-centrl-main-dvl-i",
+        "vnet-netwrk-centrl-main-tst-i",
+        "vnet-netwrk-centrl-main-prp-i",
+        "vnet-netwrk-centrl-main-prd-i",
+        "vnet-netwrk-centrl-main-poc-i"
+      ]
+    },
+    "peeringNames": {
+      "value": [
+        {
+          "localToRemote": "peer-vnet-netwrk-centrl-main-trv-i-to-vnet-netwrk-centrl-main-dvl-i",
+          "remoteToLocal": "peer-vnet-netwrk-centrl-main-dvl-i-to-vnet-netwrk-centrl-main-trv-i"
+        },
+        {
+          "localToRemote": "peer-vnet-netwrk-centrl-main-trv-i-to-vnet-netwrk-centrl-main-tst-i",
+          "remoteToLocal": "peer-vnet-netwrk-centrl-main-tst-i-to-vnet-netwrk-centrl-main-trv-i"
+        },
+        {
+          "localToRemote": "peer-vnet-netwrk-centrl-main-trv-i-to-vnet-netwrk-centrl-main-prp-i",
+          "remoteToLocal": "peer-vnet-netwrk-centrl-main-prp-i-to-vnet-netwrk-centrl-main-trv-i"
+        },
+        {
+          "localToRemote": "peer-vnet-netwrk-centrl-main-trv-i-to-vnet-netwrk-centrl-main-prd-i",
+          "remoteToLocal": "peer-vnet-netwrk-centrl-main-prd-i-to-vnet-netwrk-centrl-main-trv-i"
+        },
+        {
+          "localToRemote": "peer-vnet-netwrk-centrl-main-trv-i-to-vnet-netwrk-centrl-main-poc-i",
+          "remoteToLocal": "peer-vnet-netwrk-centrl-main-poc-i-to-vnet-netwrk-centrl-main-trv-i"
+        }
+      ]
+    }
+  }
+}
