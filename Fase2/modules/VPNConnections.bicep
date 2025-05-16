@@ -7,7 +7,7 @@ resource vpnConnection1 'Microsoft.Network/connections@2020-11-01' = {
   properties: {
     connectionType: 'IPsec'
     virtualNetworkGateway1: {
-      id: resourceId('Microsoft.Network/virtualNetworkGateways', 'vgw-secuty-public-vpnsec-trv-i')
+      id: resourceId('Microsoft.Network/virtualNetworkGateways', 'vgw-netwrk-centrl-vpnsec-trv-i')
       properties: {}
     }
     localNetworkGateway2: {
@@ -38,7 +38,7 @@ resource vpnConnection2 'Microsoft.Network/connections@2020-11-01' = {
   properties: {
     connectionType: 'IPsec'
     virtualNetworkGateway1: {
-      id: resourceId('Microsoft.Network/virtualNetworkGateways', 'vgw-secuty-public-vpnsec-trv-i')
+      id: resourceId('Microsoft.Network/virtualNetworkGateways', 'vgw-netwrk-centrl-vpnsec-trv-i')
       properties: {}
     }
     localNetworkGateway2: {
@@ -69,7 +69,7 @@ resource vpnConnection3 'Microsoft.Network/connections@2020-11-01' = {
   properties: {
     connectionType: 'IPsec'
     virtualNetworkGateway1: {
-      id: resourceId('Microsoft.Network/virtualNetworkGateways', 'vgw-secuty-public-vpnsec-trv-i')
+      id: resourceId('Microsoft.Network/virtualNetworkGateways', 'vgw-netwrk-centrl-vpnsec-trv-i')
       properties: {}
     }
     localNetworkGateway2: {
@@ -100,7 +100,7 @@ resource vpnConnection4 'Microsoft.Network/connections@2020-11-01' = {
   properties: {
     connectionType: 'IPsec'
     virtualNetworkGateway1: {
-      id: resourceId('Microsoft.Network/virtualNetworkGateways', 'vgw-secuty-public-vpnsec-trv-i')
+      id: resourceId('Microsoft.Network/virtualNetworkGateways', 'vgw-netwrk-centrl-vpnsec-trv-i')
       properties: {}
     }
     localNetworkGateway2: {
@@ -131,7 +131,7 @@ resource vpnConnection5 'Microsoft.Network/connections@2020-11-01' = {
   properties: {
     connectionType: 'IPsec'
     virtualNetworkGateway1: {
-      id: resourceId('Microsoft.Network/virtualNetworkGateways', 'vgw-secuty-public-vpnsec-trv-i')
+      id: resourceId('Microsoft.Network/virtualNetworkGateways', 'vgw-netwrk-centrl-vpnsec-trv-i')
       properties: {}
     }
     localNetworkGateway2: {
