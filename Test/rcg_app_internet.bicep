@@ -1,5 +1,5 @@
 
-param firewallPolicyName string = 'afwp-afw-secuty-public-centrl-trv-i'
+param firewallPolicyName string
 
 resource afp 'Microsoft.Network/firewallPolicies@2024-01-01' existing = {
   name: firewallPolicyName
@@ -21,22 +21,42 @@ resource rcg_app_internet 'Microsoft.Network/firewallPolicies/ruleCollectionGrou
         rules: [
           {
             ruleType: 'ApplicationRule'
-            name: 'rule_az_vnets_to_cat_computers+technology'
-            sourceIpGroups: ['/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-dvl-i', '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-tst-i', '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-prp-i', '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-prd-i', '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-trv-i', '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-poc-i']
+            name: 'rule-az-vnets-to-cat-computers+technology'
             protocols: [
+
               {
                 protocolType: 'Https'
                 port: 443
               }
+
               {
                 protocolType: 'Http'
                 port: 80
               }
+
             ]
-            targetFqdns: []
+            fqdnTags: []
+            webCategories: []
+            targetFqdns: [
+
+            ]
+            targetUrls: []
+            terminateTLS: false
+            sourceAddresses: []
+            destinationAddresses: []
+            sourceIpGroups: [
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-dvl-i'
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-tst-i'
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-prp-i'
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-prd-i'
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-trv-i'
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-poc-i'
+
+            ]
+            httpHeadersToInsert: []
           }
         ]
-        name: 'rc_az_vnets_to_internet_web_categories'
+        name: 'rc-az-vnets-to-internet-web-categories'
         priority: 30000
       }
 
@@ -48,22 +68,42 @@ resource rcg_app_internet 'Microsoft.Network/firewallPolicies/ruleCollectionGrou
         rules: [
           {
             ruleType: 'ApplicationRule'
-            name: 'rule_az_vnets_to_cat_information_security'
-            sourceIpGroups: ['/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-dvl-i', '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-tst-i', '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-prp-i', '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-prd-i', '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-trv-i', '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-poc-i']
+            name: 'rule-az-vnets-to-cat-information-security'
             protocols: [
+
               {
                 protocolType: 'Https'
                 port: 443
               }
+
               {
                 protocolType: 'Http'
                 port: 80
               }
+
             ]
-            targetFqdns: []
+            fqdnTags: []
+            webCategories: []
+            targetFqdns: [
+
+            ]
+            targetUrls: []
+            terminateTLS: false
+            sourceAddresses: []
+            destinationAddresses: []
+            sourceIpGroups: [
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-dvl-i'
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-tst-i'
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-prp-i'
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-prd-i'
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-trv-i'
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-poc-i'
+
+            ]
+            httpHeadersToInsert: []
           }
         ]
-        name: 'rc_az_vnets_to_internet_web_categories'
+        name: 'rc-az-vnets-to-internet-web-categories'
         priority: 30000
       }
 
@@ -75,36 +115,75 @@ resource rcg_app_internet 'Microsoft.Network/firewallPolicies/ruleCollectionGrou
         rules: [
           {
             ruleType: 'ApplicationRule'
-            name: 'rule_az_vnets_to_internet_fqdn_tag_microsoft'
-            sourceIpGroups: ['/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-dvl-i', '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-tst-i', '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-prp-i', '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-prd-i', '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-trv-i', '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-poc-i']
-            protocols: []
-            targetFqdns: []
-          }
-        ]
-        name: 'rc_az_vnets_to_internet_fqdn_tag'
-        priority: 30000
-      }
-
-      {
-        ruleCollectionType: 'FirewallPolicyFilterRuleCollection'
-        action: {
-          type: 'Allow'
-        }
-        rules: [
-          {
-            ruleType: 'ApplicationRule'
-            name: 'rule_az_vnets_to_*.compensar.com'
-            sourceIpGroups: ['/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-dvl-i', '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-tst-i', '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-prp-i', '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-prd-i', '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-trv-i', '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-poc-i']
+            name: 'rule-az-vnets-to-internet-fqdn-tag-microsoft'
             protocols: [
+
+            ]
+            fqdnTags: []
+            webCategories: []
+            targetFqdns: [
+
+            ]
+            targetUrls: []
+            terminateTLS: false
+            sourceAddresses: []
+            destinationAddresses: []
+            sourceIpGroups: [
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-dvl-i'
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-tst-i'
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-prp-i'
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-prd-i'
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-trv-i'
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-poc-i'
+
+            ]
+            httpHeadersToInsert: []
+          }
+        ]
+        name: 'rc-az-vnets-to-internet-fqdn-tag'
+        priority: 30000
+      }
+
+      {
+        ruleCollectionType: 'FirewallPolicyFilterRuleCollection'
+        action: {
+          type: 'Allow'
+        }
+        rules: [
+          {
+            ruleType: 'ApplicationRule'
+            name: 'rule-az-vnets-to-*.compensar.com'
+            protocols: [
+
               {
                 protocolType: 'Https'
                 port: 443
               }
+
             ]
-            targetFqdns: ['*.compensar.com']
+            fqdnTags: []
+            webCategories: []
+            targetFqdns: [
+              '*.compensar.com'
+
+            ]
+            targetUrls: []
+            terminateTLS: false
+            sourceAddresses: []
+            destinationAddresses: []
+            sourceIpGroups: [
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-dvl-i'
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-tst-i'
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-prp-i'
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-prd-i'
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-trv-i'
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-poc-i'
+
+            ]
+            httpHeadersToInsert: []
           }
         ]
-        name: 'rc_az_vnets_to_internet_url'
+        name: 'rc-az-vnets-to-internet-url'
         priority: 30000
       }
 
@@ -116,18 +195,38 @@ resource rcg_app_internet 'Microsoft.Network/firewallPolicies/ruleCollectionGrou
         rules: [
           {
             ruleType: 'ApplicationRule'
-            name: 'rule_az_vnets_to_*.compensar.co'
-            sourceIpGroups: ['/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-dvl-i', '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-tst-i', '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-prp-i', '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-prd-i', '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-trv-i', '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-poc-i']
+            name: 'rule-az-vnets-to-*.compensar.co'
             protocols: [
+
               {
                 protocolType: 'Https'
                 port: 443
               }
+
             ]
-            targetFqdns: ['*.compensar.co']
+            fqdnTags: []
+            webCategories: []
+            targetFqdns: [
+              '*.compensar.co'
+
+            ]
+            targetUrls: []
+            terminateTLS: false
+            sourceAddresses: []
+            destinationAddresses: []
+            sourceIpGroups: [
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-dvl-i'
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-tst-i'
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-prp-i'
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-prd-i'
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-trv-i'
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-poc-i'
+
+            ]
+            httpHeadersToInsert: []
           }
         ]
-        name: 'rc_az_vnets_to_internet_url'
+        name: 'rc-az-vnets-to-internet-url'
         priority: 30000
       }
 
@@ -139,18 +238,38 @@ resource rcg_app_internet 'Microsoft.Network/firewallPolicies/ruleCollectionGrou
         rules: [
           {
             ruleType: 'ApplicationRule'
-            name: 'rule_az_vnets_to_*.compensarsalud.com'
-            sourceIpGroups: ['/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-dvl-i', '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-tst-i', '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-prp-i', '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-prd-i', '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-trv-i', '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-poc-i']
+            name: 'rule-az-vnets-to-*.compensarsalud.com'
             protocols: [
+
               {
                 protocolType: 'Https'
                 port: 443
               }
+
             ]
-            targetFqdns: ['*.compensarsalud.com']
+            fqdnTags: []
+            webCategories: []
+            targetFqdns: [
+              '*.compensarsalud.com'
+
+            ]
+            targetUrls: []
+            terminateTLS: false
+            sourceAddresses: []
+            destinationAddresses: []
+            sourceIpGroups: [
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-dvl-i'
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-tst-i'
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-prp-i'
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-prd-i'
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-trv-i'
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-poc-i'
+
+            ]
+            httpHeadersToInsert: []
           }
         ]
-        name: 'rc_az_vnets_to_internet_url'
+        name: 'rc-az-vnets-to-internet-url'
         priority: 30000
       }
 
@@ -162,18 +281,38 @@ resource rcg_app_internet 'Microsoft.Network/firewallPolicies/ruleCollectionGrou
         rules: [
           {
             ruleType: 'ApplicationRule'
-            name: 'rule_az_vnets_to_*.prucompensarsalud.com'
-            sourceIpGroups: ['/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-dvl-i', '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-tst-i', '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-prp-i', '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-prd-i', '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-trv-i', '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-poc-i']
+            name: 'rule-az-vnets-to-*.prucompensarsalud.com'
             protocols: [
+
               {
                 protocolType: 'Https'
                 port: 443
               }
+
             ]
-            targetFqdns: ['*.prucompensarsalud.com']
+            fqdnTags: []
+            webCategories: []
+            targetFqdns: [
+              '*.prucompensarsalud.com'
+
+            ]
+            targetUrls: []
+            terminateTLS: false
+            sourceAddresses: []
+            destinationAddresses: []
+            sourceIpGroups: [
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-dvl-i'
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-tst-i'
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-prp-i'
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-prd-i'
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-trv-i'
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-poc-i'
+
+            ]
+            httpHeadersToInsert: []
           }
         ]
-        name: 'rc_az_vnets_to_internet_url'
+        name: 'rc-az-vnets-to-internet-url'
         priority: 30000
       }
 
@@ -185,18 +324,38 @@ resource rcg_app_internet 'Microsoft.Network/firewallPolicies/ruleCollectionGrou
         rules: [
           {
             ruleType: 'ApplicationRule'
-            name: 'rule_az_vnets_to_*.prdaws.compensar.com'
-            sourceIpGroups: ['/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-dvl-i', '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-tst-i', '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-prp-i', '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-prd-i', '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-trv-i', '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-poc-i']
+            name: 'rule-az-vnets-to-*.prdaws.compensar.com'
             protocols: [
+
               {
                 protocolType: 'Https'
                 port: 443
               }
+
             ]
-            targetFqdns: ['*.pruaws.compensar.co']
+            fqdnTags: []
+            webCategories: []
+            targetFqdns: [
+              '*.pruaws.compensar.co'
+
+            ]
+            targetUrls: []
+            terminateTLS: false
+            sourceAddresses: []
+            destinationAddresses: []
+            sourceIpGroups: [
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-dvl-i'
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-tst-i'
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-prp-i'
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-prd-i'
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-trv-i'
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-poc-i'
+
+            ]
+            httpHeadersToInsert: []
           }
         ]
-        name: 'rc_az_vnets_to_internet_url'
+        name: 'rc-az-vnets-to-internet-url'
         priority: 30000
       }
 
@@ -208,18 +367,38 @@ resource rcg_app_internet 'Microsoft.Network/firewallPolicies/ruleCollectionGrou
         rules: [
           {
             ruleType: 'ApplicationRule'
-            name: 'rule_az_vnets_to_*.pruaws.compensar.co'
-            sourceIpGroups: ['/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-dvl-i', '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-tst-i', '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-prp-i', '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-prd-i', '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-trv-i', '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-poc-i']
+            name: 'rule-az-vnets-to-*.pruaws.compensar.co'
             protocols: [
+
               {
                 protocolType: 'Https'
                 port: 443
               }
+
             ]
-            targetFqdns: ['*.prdaws.compensar.com']
+            fqdnTags: []
+            webCategories: []
+            targetFqdns: [
+              '*.prdaws.compensar.com'
+
+            ]
+            targetUrls: []
+            terminateTLS: false
+            sourceAddresses: []
+            destinationAddresses: []
+            sourceIpGroups: [
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-dvl-i'
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-tst-i'
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-prp-i'
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-prd-i'
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-trv-i'
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-poc-i'
+
+            ]
+            httpHeadersToInsert: []
           }
         ]
-        name: 'rc_az_vnets_to_internet_url'
+        name: 'rc-az-vnets-to-internet-url'
         priority: 30000
       }
 
@@ -231,18 +410,38 @@ resource rcg_app_internet 'Microsoft.Network/firewallPolicies/ruleCollectionGrou
         rules: [
           {
             ruleType: 'ApplicationRule'
-            name: 'rule_az_vnets_to_*.microsoft.com'
-            sourceIpGroups: ['/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-dvl-i', '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-tst-i', '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-prp-i', '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-prd-i', '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-trv-i', '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-poc-i']
+            name: 'rule-az-vnets-to-*.microsoft.com'
             protocols: [
+
               {
                 protocolType: 'Https'
                 port: 443
               }
+
             ]
-            targetFqdns: ['*.microsoft.com']
+            fqdnTags: []
+            webCategories: []
+            targetFqdns: [
+              '*.microsoft.com'
+
+            ]
+            targetUrls: []
+            terminateTLS: false
+            sourceAddresses: []
+            destinationAddresses: []
+            sourceIpGroups: [
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-dvl-i'
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-tst-i'
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-prp-i'
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-prd-i'
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-trv-i'
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-poc-i'
+
+            ]
+            httpHeadersToInsert: []
           }
         ]
-        name: 'rc_az_vnets_to_internet_url'
+        name: 'rc-az-vnets-to-internet-url'
         priority: 30000
       }
 
@@ -254,22 +453,43 @@ resource rcg_app_internet 'Microsoft.Network/firewallPolicies/ruleCollectionGrou
         rules: [
           {
             ruleType: 'ApplicationRule'
-            name: 'rule_az_vnets_to_*.smtp_mail.outlook.com'
-            sourceIpGroups: ['/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-dvl-i', '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-tst-i', '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-prp-i', '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-prd-i', '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-trv-i', '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-poc-i']
+            name: 'rule-az-vnets-to-*.smtp-mail.outlook.com'
             protocols: [
+
               {
                 protocolType: 'Https'
                 port: 587
               }
+
               {
                 protocolType: 'Https'
                 port: 443
               }
+
             ]
-            targetFqdns: ['*.outlook.com']
+            fqdnTags: []
+            webCategories: []
+            targetFqdns: [
+              '*.outlook.com'
+
+            ]
+            targetUrls: []
+            terminateTLS: false
+            sourceAddresses: []
+            destinationAddresses: []
+            sourceIpGroups: [
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-dvl-i'
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-tst-i'
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-prp-i'
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-prd-i'
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-trv-i'
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-poc-i'
+
+            ]
+            httpHeadersToInsert: []
           }
         ]
-        name: 'rc_az_vnets_to_internet_url'
+        name: 'rc-az-vnets-to-internet-url'
         priority: 30000
       }
 
@@ -281,22 +501,43 @@ resource rcg_app_internet 'Microsoft.Network/firewallPolicies/ruleCollectionGrou
         rules: [
           {
             ruleType: 'ApplicationRule'
-            name: 'rule_az_vnets_to_*.smtp_office365.com'
-            sourceIpGroups: ['/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-dvl-i', '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-tst-i', '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-prp-i', '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-prd-i', '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-trv-i', '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-poc-i']
+            name: 'rule-az-vnets-to-*.smtp-office365.com'
             protocols: [
+
               {
                 protocolType: 'Https'
                 port: 587
               }
+
               {
                 protocolType: 'Https'
                 port: 443
               }
+
             ]
-            targetFqdns: ['*.office365.com']
+            fqdnTags: []
+            webCategories: []
+            targetFqdns: [
+              '*.office365.com'
+
+            ]
+            targetUrls: []
+            terminateTLS: false
+            sourceAddresses: []
+            destinationAddresses: []
+            sourceIpGroups: [
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-dvl-i'
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-tst-i'
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-prp-i'
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-prd-i'
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-trv-i'
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-poc-i'
+
+            ]
+            httpHeadersToInsert: []
           }
         ]
-        name: 'rc_az_vnets_to_internet_url'
+        name: 'rc-az-vnets-to-internet-url'
         priority: 30000
       }
 
@@ -308,18 +549,38 @@ resource rcg_app_internet 'Microsoft.Network/firewallPolicies/ruleCollectionGrou
         rules: [
           {
             ruleType: 'ApplicationRule'
-            name: 'rule_az_vnets_to_*.google.com'
-            sourceIpGroups: ['/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-dvl-i', '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-tst-i', '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-prp-i', '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-prd-i', '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-trv-i', '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-poc-i']
+            name: 'rule-az-vnets-to-*.google.com'
             protocols: [
+
               {
                 protocolType: 'Https'
                 port: 443
               }
+
             ]
-            targetFqdns: ['*.google.com']
+            fqdnTags: []
+            webCategories: []
+            targetFqdns: [
+              '*.google.com'
+
+            ]
+            targetUrls: []
+            terminateTLS: false
+            sourceAddresses: []
+            destinationAddresses: []
+            sourceIpGroups: [
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-dvl-i'
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-tst-i'
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-prp-i'
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-prd-i'
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-trv-i'
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-poc-i'
+
+            ]
+            httpHeadersToInsert: []
           }
         ]
-        name: 'rc_az_vnets_to_internet_url'
+        name: 'rc-az-vnets-to-internet-url'
         priority: 30000
       }
 
@@ -331,18 +592,38 @@ resource rcg_app_internet 'Microsoft.Network/firewallPolicies/ruleCollectionGrou
         rules: [
           {
             ruleType: 'ApplicationRule'
-            name: 'rule_az_vnets_to_*.googleapis.com'
-            sourceIpGroups: ['/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-dvl-i', '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-tst-i', '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-prp-i', '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-prd-i', '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-trv-i', '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-poc-i']
+            name: 'rule-az-vnets-to-*.googleapis.com'
             protocols: [
+
               {
                 protocolType: 'Https'
                 port: 443
               }
+
             ]
-            targetFqdns: ['*.googleapis.com']
+            fqdnTags: []
+            webCategories: []
+            targetFqdns: [
+              '*.googleapis.com'
+
+            ]
+            targetUrls: []
+            terminateTLS: false
+            sourceAddresses: []
+            destinationAddresses: []
+            sourceIpGroups: [
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-dvl-i'
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-tst-i'
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-prp-i'
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-prd-i'
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-trv-i'
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-poc-i'
+
+            ]
+            httpHeadersToInsert: []
           }
         ]
-        name: 'rc_az_vnets_to_internet_url'
+        name: 'rc-az-vnets-to-internet-url'
         priority: 30000
       }
 
@@ -354,18 +635,38 @@ resource rcg_app_internet 'Microsoft.Network/firewallPolicies/ruleCollectionGrou
         rules: [
           {
             ruleType: 'ApplicationRule'
-            name: 'rule_az_vnets_to_*.gserviceaccount.com'
-            sourceIpGroups: ['/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-dvl-i', '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-tst-i', '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-prp-i', '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-prd-i', '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-trv-i', '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-poc-i']
+            name: 'rule-az-vnets-to-*.gserviceaccount.com'
             protocols: [
+
               {
                 protocolType: 'Https'
                 port: 443
               }
+
             ]
-            targetFqdns: ['*.gserviceaccount.com']
+            fqdnTags: []
+            webCategories: []
+            targetFqdns: [
+              '*.gserviceaccount.com'
+
+            ]
+            targetUrls: []
+            terminateTLS: false
+            sourceAddresses: []
+            destinationAddresses: []
+            sourceIpGroups: [
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-dvl-i'
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-tst-i'
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-prp-i'
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-prd-i'
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-trv-i'
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-poc-i'
+
+            ]
+            httpHeadersToInsert: []
           }
         ]
-        name: 'rc_az_vnets_to_internet_url'
+        name: 'rc-az-vnets-to-internet-url'
         priority: 30000
       }
 
@@ -377,18 +678,38 @@ resource rcg_app_internet 'Microsoft.Network/firewallPolicies/ruleCollectionGrou
         rules: [
           {
             ruleType: 'ApplicationRule'
-            name: 'rule_az_vnets_to_*.kaspersky.com'
-            sourceIpGroups: ['/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-dvl-i', '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-tst-i', '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-prp-i', '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-prd-i', '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-trv-i', '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-poc-i']
+            name: 'rule-az-vnets-to-*.kaspersky.com'
             protocols: [
+
               {
                 protocolType: 'Https'
                 port: 443
               }
+
             ]
-            targetFqdns: ['*.kaspersky.com']
+            fqdnTags: []
+            webCategories: []
+            targetFqdns: [
+              '*.kaspersky.com'
+
+            ]
+            targetUrls: []
+            terminateTLS: false
+            sourceAddresses: []
+            destinationAddresses: []
+            sourceIpGroups: [
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-dvl-i'
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-tst-i'
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-prp-i'
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-prd-i'
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-trv-i'
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-poc-i'
+
+            ]
+            httpHeadersToInsert: []
           }
         ]
-        name: 'rc_az_vnets_to_internet_url'
+        name: 'rc-az-vnets-to-internet-url'
         priority: 30000
       }
 
@@ -400,22 +721,43 @@ resource rcg_app_internet 'Microsoft.Network/firewallPolicies/ruleCollectionGrou
         rules: [
           {
             ruleType: 'ApplicationRule'
-            name: 'rule_az_vnets_to_*.debian.org'
-            sourceIpGroups: ['/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-dvl-i', '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-tst-i', '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-prp-i', '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-prd-i', '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-trv-i', '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-poc-i']
+            name: 'rule-az-vnets-to-*.debian.org'
             protocols: [
+
               {
                 protocolType: 'Https'
                 port: 443
               }
+
               {
                 protocolType: 'Http'
                 port: 80
               }
+
             ]
-            targetFqdns: ['*.debian.org']
+            fqdnTags: []
+            webCategories: []
+            targetFqdns: [
+              '*.debian.org'
+
+            ]
+            targetUrls: []
+            terminateTLS: false
+            sourceAddresses: []
+            destinationAddresses: []
+            sourceIpGroups: [
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-dvl-i'
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-tst-i'
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-prp-i'
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-prd-i'
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-trv-i'
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-poc-i'
+
+            ]
+            httpHeadersToInsert: []
           }
         ]
-        name: 'rc_az_vnets_to_internet_url'
+        name: 'rc-az-vnets-to-internet-url'
         priority: 30000
       }
 
@@ -427,22 +769,43 @@ resource rcg_app_internet 'Microsoft.Network/firewallPolicies/ruleCollectionGrou
         rules: [
           {
             ruleType: 'ApplicationRule'
-            name: 'rule_az_vnets_to_*.licensing.tableau.com'
-            sourceIpGroups: ['/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-dvl-i', '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-tst-i', '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-prp-i', '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-prd-i', '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-trv-i', '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-poc-i']
+            name: 'rule-az-vnets-to-*.licensing.tableau.com'
             protocols: [
+
               {
                 protocolType: 'Https'
                 port: 443
               }
+
               {
                 protocolType: 'Http'
                 port: 80
               }
+
             ]
-            targetFqdns: ['*.licensing.tableau.com']
+            fqdnTags: []
+            webCategories: []
+            targetFqdns: [
+              '*.licensing.tableau.com'
+
+            ]
+            targetUrls: []
+            terminateTLS: false
+            sourceAddresses: []
+            destinationAddresses: []
+            sourceIpGroups: [
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-dvl-i'
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-tst-i'
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-prp-i'
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-prd-i'
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-trv-i'
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-poc-i'
+
+            ]
+            httpHeadersToInsert: []
           }
         ]
-        name: 'rc_az_vnets_to_internet_url'
+        name: 'rc-az-vnets-to-internet-url'
         priority: 30000
       }
 
@@ -454,18 +817,38 @@ resource rcg_app_internet 'Microsoft.Network/firewallPolicies/ruleCollectionGrou
         rules: [
           {
             ruleType: 'ApplicationRule'
-            name: 'rule_az_vnets_to_*.stellarcyber.cloud'
-            sourceIpGroups: ['/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-dvl-i', '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-tst-i', '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-prp-i', '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-prd-i', '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-trv-i', '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-poc-i']
+            name: 'rule-az-vnets-to-*.stellarcyber.cloud'
             protocols: [
+
               {
                 protocolType: 'Https'
                 port: 443
               }
+
             ]
-            targetFqdns: ['*.stellarcyber.cloud']
+            fqdnTags: []
+            webCategories: []
+            targetFqdns: [
+              '*.stellarcyber.cloud'
+
+            ]
+            targetUrls: []
+            terminateTLS: false
+            sourceAddresses: []
+            destinationAddresses: []
+            sourceIpGroups: [
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-dvl-i'
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-tst-i'
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-prp-i'
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-prd-i'
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-trv-i'
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-poc-i'
+
+            ]
+            httpHeadersToInsert: []
           }
         ]
-        name: 'rc_az_vnets_to_internet_url'
+        name: 'rc-az-vnets-to-internet-url'
         priority: 30000
       }
 
@@ -477,22 +860,43 @@ resource rcg_app_internet 'Microsoft.Network/firewallPolicies/ruleCollectionGrou
         rules: [
           {
             ruleType: 'ApplicationRule'
-            name: 'rule_az_vnets_to_*.grupoemi.com'
-            sourceIpGroups: ['/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-dvl-i', '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-tst-i', '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-prp-i', '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-prd-i', '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-trv-i', '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-poc-i']
+            name: 'rule-az-vnets-to-*.grupoemi.com'
             protocols: [
+
               {
                 protocolType: 'Https'
                 port: 443
               }
+
               {
                 protocolType: 'Https'
                 port: 6078
               }
+
             ]
-            targetFqdns: ['*.grupoemi.com']
+            fqdnTags: []
+            webCategories: []
+            targetFqdns: [
+              '*.grupoemi.com'
+
+            ]
+            targetUrls: []
+            terminateTLS: false
+            sourceAddresses: []
+            destinationAddresses: []
+            sourceIpGroups: [
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-dvl-i'
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-tst-i'
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-prp-i'
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-prd-i'
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-trv-i'
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-poc-i'
+
+            ]
+            httpHeadersToInsert: []
           }
         ]
-        name: 'rc_az_vnets_to_internet_url'
+        name: 'rc-az-vnets-to-internet-url'
         priority: 30000
       }
 
@@ -504,26 +908,48 @@ resource rcg_app_internet 'Microsoft.Network/firewallPolicies/ruleCollectionGrou
         rules: [
           {
             ruleType: 'ApplicationRule'
-            name: 'rule_az_vnets_to_*.e_collect.com'
-            sourceIpGroups: ['/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-dvl-i', '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-tst-i', '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-prp-i', '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-prd-i', '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-trv-i', '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-poc-i']
+            name: 'rule-az-vnets-to-*.e-collect.com'
             protocols: [
+
               {
                 protocolType: 'Https'
                 port: 443
               }
+
               {
                 protocolType: 'Https'
                 port: 445
               }
+
               {
                 protocolType: 'Https'
                 port: 22
               }
+
             ]
-            targetFqdns: ['*.e-collect.com']
+            fqdnTags: []
+            webCategories: []
+            targetFqdns: [
+              '*.e-collect.com'
+
+            ]
+            targetUrls: []
+            terminateTLS: false
+            sourceAddresses: []
+            destinationAddresses: []
+            sourceIpGroups: [
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-dvl-i'
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-tst-i'
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-prp-i'
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-prd-i'
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-trv-i'
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-poc-i'
+
+            ]
+            httpHeadersToInsert: []
           }
         ]
-        name: 'rc_az_vnets_to_internet_url'
+        name: 'rc-az-vnets-to-internet-url'
         priority: 30000
       }
 
@@ -535,26 +961,48 @@ resource rcg_app_internet 'Microsoft.Network/firewallPolicies/ruleCollectionGrou
         rules: [
           {
             ruleType: 'ApplicationRule'
-            name: 'rule_az_vnets_to_*.cloudamqp.com'
-            sourceIpGroups: ['/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-dvl-i', '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-tst-i', '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-prp-i', '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-prd-i', '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-trv-i', '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-poc-i']
+            name: 'rule-az-vnets-to-*.cloudamqp.com'
             protocols: [
+
               {
                 protocolType: 'Https'
                 port: 443
               }
+
               {
                 protocolType: 'Https'
                 port: 5671
               }
+
               {
                 protocolType: 'Https'
                 port: 5672
               }
+
             ]
-            targetFqdns: ['*.cloudamqp.com']
+            fqdnTags: []
+            webCategories: []
+            targetFqdns: [
+              '*.cloudamqp.com'
+
+            ]
+            targetUrls: []
+            terminateTLS: false
+            sourceAddresses: []
+            destinationAddresses: []
+            sourceIpGroups: [
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-dvl-i'
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-tst-i'
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-prp-i'
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-prd-i'
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-trv-i'
+              '/subscriptions/71bcfecb-881e-4957-8d57-800172d61ee6/resourceGroups/rg-platfr-secuty-privte-trv-i/providers/Microsoft.Network/ipGroups/ipg-secuty-privte-azvnet-poc-i'
+
+            ]
+            httpHeadersToInsert: []
           }
         ]
-        name: 'rc_az_vnets_to_internet_url'
+        name: 'rc-az-vnets-to-internet-url'
         priority: 30000
       }
 
