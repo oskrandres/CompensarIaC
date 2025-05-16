@@ -6,10 +6,10 @@
       "value": "eastus"
     },
     "name": {
-      "value": "vpnvng-secuty-public-trv-i"
+      "value": "vgw-netwrk-centrl-vpnsec-trv-i"
     },
     "publicIPAddressName": {
-      "value": "pip-vgw-secuty-public-vpnsec-trv-i"
+      "value": "pip-vgw-netwrk-centrl-vpnsec-trv-i"
     },
     "virtualNetworkName": {
       "value": "vnet-netwrk-centrl-main-trv-i"

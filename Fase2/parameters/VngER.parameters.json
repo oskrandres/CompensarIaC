@@ -6,16 +6,16 @@
       "value": "eastus"
     },
     "vngName": {
-      "value": "vgw-secuty-public-exprte-trv-i"
+      "value": "vgw-netwrk-centrl-exprte-trv-i"
     },
     "publicIpName": {
-      "value": "pip-vgw-secuty-public-exprte-trv-i"
+      "value": "pip-vgw-netwrk-centrl-exprte-trv-i"
     },
     "vnetName": {
       "value": "vnet-netwrk-centrl-main-trv-i"
     },
     "vngSkuName": {
-      "value": "ErGw1AZ" //ajustar a 1 Az GEN2
+      "value": "ErGw1AZ"
     },
     "vngSkuTier": {
       "value": "ErGw1AZ"
