@@ -14,7 +14,7 @@ resource vpnConnection1 'Microsoft.Network/connections@2020-11-01' = {
       id: resourceId('Microsoft.Network/localNetworkGateways', 'lgw-con-netwrk-vpnsts-compensar-ccf-onpremise-trv-i')
       properties: {}
     }
-    sharedKey: 'C0mp3ns4RAbC951'
+    sharedKey: 'IEKmqQ2yjioGHmD'
     usePolicyBasedTrafficSelectors: false
     ipsecPolicies: [
       {
