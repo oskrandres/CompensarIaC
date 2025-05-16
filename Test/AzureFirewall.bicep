@@ -1,10 +1,11 @@
+
 @description('Nombre del Azure Firewall')
 param firewallName string = 'afw-secuty-public-centrl-trv-i'
 
-@description('Nombre del grupo de recursos existente')
+@description('Nombre del grupo de recursos')
 param resourceGroupName string = 'rg-platfr-secuty-public-trv-i'
 
-@description('Nombre de la IP pública existente')
+@description('Nombre de la IP pública')
 param publicIpName string = 'pip-afw-secuty-public-centrl-trv-i'
 
 @description('Nombre de la política de firewall existente')
@@ -36,9 +37,16 @@ var tags = {
   costos_unidad_negocio: 'CSC'
 }
 
-resource publicIp 'Microsoft.Network/publicIPAddresses@2022-05-01' existing = {
+resource publicIp 'Microsoft.Network/publicIPAddresses@2022-05-01' = {
   name: publicIpName
-  scope: resourceGroup(resourceGroupName)
+  location: location
+  tags: tags
+  sku: {
+    name: 'Standard'
+  }
+  properties: {
+    publicIPAllocationMethod: 'Static'
+  }
 }
 
 resource firewallPolicy 'Microsoft.Network/firewallPolicies@2022-05-01' existing = {
