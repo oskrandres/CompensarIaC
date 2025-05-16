@@ -2,7 +2,7 @@
 param firewallPolicyName string = 'afwp-afw-secuty-public-centrl-trv-i'
 
 @description('Nombre del grupo de recursos')
-param resourceGroupName string = 'rg-platfr-secuty-public-trv-i'
+param resourceGroupName string = 'rg-platfr-netwrk-centrl-trv-i'
 
 var location = resourceGroup().location
 
