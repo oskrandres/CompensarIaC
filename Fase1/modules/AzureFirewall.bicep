@@ -15,7 +15,6 @@ resource publicIp 'Microsoft.Network/publicIPAddresses@2023-04-01' = {
     name: 'Standard'
     tier: 'Regional'
   }
-  zones: zones
   properties: {
     publicIPAllocationMethod: 'Static'
   }
@@ -28,11 +27,6 @@ resource afp 'Microsoft.Network/firewallPolicies@2024-01-01' = {
   properties: {
     sku: {
       tier: 'Premium'
-    }
-    dnsSettings: {
-      enableProxy: true
-      requireProxyForNetworkRules: true
-      servers: []
     }
     threatIntelMode: 'Alert'
     threatIntelWhitelist: {

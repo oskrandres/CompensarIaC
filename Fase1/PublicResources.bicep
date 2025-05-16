@@ -33,6 +33,7 @@ resource logAnalyticsWorkspace 'Microsoft.OperationalInsights/workspaces@2021-06
 resource routeTable 'Microsoft.Network/routeTables@2021-02-01' = {
   name: routeTableName
   location: resourceGroup().location
+  tags: tags
   properties: {
     disableBgpRoutePropagation: false
     routes: [for route in routes: {
