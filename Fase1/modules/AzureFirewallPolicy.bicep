@@ -1,5 +1,5 @@
 
-param firewallPolicyName string = 'test'
+param firewallPolicyName string = 'rg-platfr-secuty-public-trv-i'
 
 resource afp 'Microsoft.Network/firewallPolicies@2024-01-01' existing = {
   name: firewallPolicyName
