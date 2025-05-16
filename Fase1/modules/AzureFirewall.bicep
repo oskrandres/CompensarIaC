@@ -26,7 +26,7 @@ resource afp 'Microsoft.Network/firewallPolicies@2024-01-01' = {
   location: location
   properties: {
     sku: {
-      tier: 'Premium'
+      tier: 'Standartd'
     }
     threatIntelMode: 'Alert'
     threatIntelWhitelist: {
