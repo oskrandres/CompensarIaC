@@ -1,7 +1,5 @@
-param location string = resourceGroup().location
-
 resource publicIP 'Microsoft.Network/publicIPAddresses@2024-05-01' existing = {
-  name: 'pip-vgw-secuty-public-vpnsec-trv-i'
+  name: 'pip-vgw-secuty-public-exprte-trv-i'
 }
 
 resource vnet 'Microsoft.Network/virtualNetworks@2023-09-01' existing = {
@@ -9,13 +7,13 @@ resource vnet 'Microsoft.Network/virtualNetworks@2023-09-01' existing = {
 }
 
 resource virtualNetworkGateway 'Microsoft.Network/virtualNetworkGateways@2024-05-01' = {
-  name: 'vgw-secuty-public-vpnsec-trv-i'
-  location: location
+  name: 'vgw-secuty-public-exprte-trv-i'
+  location: resourceGroup().location
   properties: {
     enablePrivateIpAddress: false
     ipConfigurations: [
       {
-        name: 'ip-vgw-secuty-public-vpnsec-trv-i'
+        name: 'default'
         properties: {
           privateIPAllocationMethod: 'Dynamic'
           publicIPAddress: {
@@ -28,16 +26,16 @@ resource virtualNetworkGateway 'Microsoft.Network/virtualNetworkGateways@2024-05
       }
     ]
     sku: {
-      name: 'VpnGw1AZ'
-      tier: 'VpnGw1AZ'
+      name: 'ErGw1AZ'
+      tier: 'ErGw1AZ'
     }
-    gatewayType: 'Vpn'
-    vpnType: 'RouteBased'
+    gatewayType: 'ExpressRoute'
+    vpnType: 'PolicyBased'
     enableBgp: false
     activeActive: false
-    vpnGatewayGeneration: 'Generation1'
-    allowRemoteVnetTraffic: false
-    allowVirtualWanTraffic: false
+    vpnGatewayGeneration: 'None'
+    allowRemoteVnetTraffic: true
+    allowVirtualWanTraffic: true
   }
   tags: {
     responsable_operacional_nombre: 'Lois Albert Espinel Garcia'
