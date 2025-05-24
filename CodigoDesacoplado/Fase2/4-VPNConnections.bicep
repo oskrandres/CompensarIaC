@@ -1,19 +1,35 @@
-// Se debe validar los parámetros de negociación de cada VPN con el área de telecomunicaciones
-
 param location string = resourceGroup().location
+
+var commonTags = {
+  responsable_operacional_nombre: 'Lois Albert Espinel Garcia'
+  responsable_operacional_correo: 'laespinelg@compensar.com'
+  responsable_operacional_telefono: '3008479901'
+  responsable_costos_nombre: 'Diego Fernando Caviedes Quintero'
+  responsable_costos_correo: 'dfcaviedesq@compensar.com'
+  responsable_costos_telefono: '3183832718'
+  responsable_seguridad_nombre: 'Yesid Alejandro Amaya Corredor'
+  responsable_seguridad_correo: 'yaamayaco@compensar.com'
+  responsable_seguridad_telefono: '3009749654'
+  aplicacion_nombre: 'Networking & Security'
+  aplicacion_descripcion: 'Networking'
+  aplicacion_codigo_cmdb: 'SWPR000'
+  aplicacion_capacidad: 'Transversal Cloud TI'
+  costos_inductor: 'Servicios Transversales'
+}
 
 resource vpnConnection1 'Microsoft.Network/connections@2020-11-01' = {
   name: 'lgw-con-netwrk-vpnsts-compensar-ccf-onpremise-trv-i'
   location: location
+  tags: commonTags
   properties: {
     connectionType: 'IPsec'
     virtualNetworkGateway1: {
       id: resourceId('Microsoft.Network/virtualNetworkGateways', 'vgw-secuty-public-vpnsec-trv-i')
-      properties: {}
+       properties: {}
     }
     localNetworkGateway2: {
       id: resourceId('Microsoft.Network/localNetworkGateways', 'lgw-con-netwrk-vpnsts-compensar-ccf-onpremise-trv-i')
-      properties: {}
+       properties: {}
     }
     sharedKey: 'IEKmqQ2yjioGHmD'
     usePolicyBasedTrafficSelectors: false
@@ -35,15 +51,16 @@ resource vpnConnection1 'Microsoft.Network/connections@2020-11-01' = {
 resource vpnConnection2 'Microsoft.Network/connections@2020-11-01' = {
   name: 'lgw-con-netwrk-vpnsts-compensar-ccf-aws-preprod-trv-i'
   location: location
+  tags: commonTags
   properties: {
     connectionType: 'IPsec'
     virtualNetworkGateway1: {
       id: resourceId('Microsoft.Network/virtualNetworkGateways', 'vgw-secuty-public-vpnsec-trv-i')
-      properties: {}
+       properties: {}
     }
     localNetworkGateway2: {
       id: resourceId('Microsoft.Network/localNetworkGateways', 'lgw-con-netwrk-vpnsts-compensar-ccf-aws-preprod-trv-i')
-      properties: {}
+       properties: {}
     }
     sharedKey: 'ZDVFvlJTI0ybvEWRvHDnsCtedHa7FyZD*'
     usePolicyBasedTrafficSelectors: false
@@ -65,15 +82,16 @@ resource vpnConnection2 'Microsoft.Network/connections@2020-11-01' = {
 resource vpnConnection3 'Microsoft.Network/connections@2020-11-01' = {
   name: 'lgw-con-netwrk-vpnsts-compensar-salud-azure-prod-trv-i'
   location: location
+  tags: commonTags
   properties: {
     connectionType: 'IPsec'
     virtualNetworkGateway1: {
       id: resourceId('Microsoft.Network/virtualNetworkGateways', 'vgw-secuty-public-vpnsec-trv-i')
-      properties: {}
+       properties: {}
     }
     localNetworkGateway2: {
       id: resourceId('Microsoft.Network/localNetworkGateways', 'lgw-con-netwrk-vpnsts-compensar-salud-azure-prod-trv-i')
-      properties: {}
+       properties: {}
     }
     sharedKey: 'C0mp3ns4RSH4r4d**KEYProd'
     usePolicyBasedTrafficSelectors: false
@@ -95,15 +113,16 @@ resource vpnConnection3 'Microsoft.Network/connections@2020-11-01' = {
 resource vpnConnection4 'Microsoft.Network/connections@2020-11-01' = {
   name: 'lgw-con-netwrk-vpnsts-compensar-salud-azure-noprod-trv-i'
   location: location
+  tags: commonTags
   properties: {
     connectionType: 'IPsec'
     virtualNetworkGateway1: {
       id: resourceId('Microsoft.Network/virtualNetworkGateways', 'vgw-secuty-public-vpnsec-trv-i')
-      properties: {}
+       properties: {}
     }
     localNetworkGateway2: {
       id: resourceId('Microsoft.Network/localNetworkGateways', 'lgw-con-netwrk-vpnsts-compensar-salud-azure-noprod-trv-i')
-      properties: {}
+       properties: {}
     }
     sharedKey: 'C0mp3ns4RSH4r8d**KEYNoProd'
     usePolicyBasedTrafficSelectors: false
@@ -125,15 +144,16 @@ resource vpnConnection4 'Microsoft.Network/connections@2020-11-01' = {
 resource vpnConnection5 'Microsoft.Network/connections@2020-11-01' = {
   name: 'lgw-con-netwrk-vpnsts-ciel-azure-digiturno-trv-i'
   location: location
+  tags: commonTags
   properties: {
     connectionType: 'IPsec'
     virtualNetworkGateway1: {
       id: resourceId('Microsoft.Network/virtualNetworkGateways', 'vgw-secuty-public-vpnsec-trv-i')
-      properties: {}
+       properties: {}
     }
     localNetworkGateway2: {
       id: resourceId('Microsoft.Network/localNetworkGateways', 'lgw-con-netwrk-vpnsts-ciel-azure-digiturno-trv-i')
-      properties: {}
+       properties: {}
     }
     sharedKey: 'GxV9TMSpltMRh8&@ot#pqJMRdp3OZsAN'
     usePolicyBasedTrafficSelectors: false
