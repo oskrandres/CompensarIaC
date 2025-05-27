@@ -1,0 +1,545 @@
+****************************************************************************
+****************************************************************************
+1. PARA TODOS LOS RECURSOS A DESPLEGAR
+
+* Suscripción:
+Compensar_Corp_Azure_Trv_I
+
+* vNET:
+vnet-netwrk-centrl-main-trv-i
+
+****************************************************************************
+****************************************************************************
+2. INCLUIR TAG'S PARA TODOS LOS RECURSOS
+
+* Incluir en todos los recursos los siguientes TAG's:
+
+responsable_operacional_nombre		Lois Albert Espinel Garcia
+responsable_operacional_correo		laespinelg@compensar.com
+responsable_operacional_telefono	3008479901
+responsable_costos_nombre		Diego Fernando Caviedes Quintero
+responsable_costos_correo		dfcaviedesq@compensar.com
+responsable_costos_telefono		3183832718
+responsable_seguridad_nombre		Yesid Alejandro Amaya Corredor
+responsable_seguridad_correo		yaamayaco@compensar.com
+responsable_seguridad_telefono		3009749654
+aplicacion_nombre			Networking & Security
+aplicacion_descripcion			Networking
+aplicacion_codigo_cmdb			SWPR000
+aplicacion_capacidad			Transversal Cloud TI
+costos_inductor				Servicios Transversales
+costos_unidad_negocio			CSC
+
+****************************************************************************
+****************************************************************************
+3. FASE 1 - ACTIVIDADES PREVIAS - IP GROUP'S
+
+* Utilizar el Resource Group existente:
+rg-platfr-secuty-privte-trv-i
+
+* IP Group's / IP Address:
+ipg-secuty-privte-azvnet-poc-i		10.204.240.0/20
+ipg-secuty-privte-azvnet-dvl-i		10.89.0.0/20,10.89.16.0/20,10.89.32.0/20,10.89.48.0/20
+ipg-secuty-privte-azvnet-tst-i		10.89.128.0/20,10.89.144.0/20,10.89.160.0/20,10.89.176.0/20
+ipg-secuty-privte-azvnet-prp-i		10.205.0.0/20,10.205.16.0/20,10.205.32.0/20,10.205.48.0/20
+ipg-secuty-privte-azvnet-prd-i		10.203.0.0/20,10.203.16.0/20,10.203.32.0/20,10.203.48.0/20
+ipg-secuty-privte-azvnet-trv-i		10.204.0.0/20
+
+ipg-secuty-privte-azsnet-dmz		10.89.0.0/24,10.89.128.0/24,10.205.0.0/24,10.203.0.0/24
+ipg-secuty-privte-azsnet-app		10.89.2.0/23,10.89.130.0/23,10.205.2.0/23,10.203.2.0/23
+ipg-secuty-privte-azsnet-aks		10.89.16.0/20,10.89.144.0/20,10.205.16.0/20,10.203.16.0/20
+ipg-secuty-privte-azsnet-dbw		10.89.8.0/22,10.89.32.0/22,10.89.136.0/22,10.89.160.0/22,10.205.8.0/22,10.205.32.0/22,10.203.8.0/22,10.203.32.0/22
+ipg-secuty-privte-azsnet-apim		10.89.1.0/28,10.89.129.0/28,10.205.1.0/28,10.203.1.0/28
+ipg-secuty-privte-azsnet-db		10.89.4.0/24,10.89.132.0/24,10.205.4.0/24,10.203.4.0/24
+ipg-secuty-privte-azsnet-st		10.89.5.0/24,10.89.133.0/24,10.205.5.0/24,10.203.5.0/24
+ipg-secuty-privte-azsnet-vault		10.89.1.128/25, 10.89.129.128/25, 10.203.1.128/25, 10.205.1.128/25
+ipg-secuty-privte-azsnet-dmctrl		10.204.3.4
+
+ipg-secuty-privte-opvlan-dmctrl		192.168.10.123,192.168.18.24,192.168.18.44,192.168.60.11,192.168.68.31,192.168.130.69,192.168.186.12,192.168.186.15,192.168.204.11,192.168.204.19
+ipg-secuty-privte-opvlan-vpnsec		10.250.1.0/24,10.254.0.0/21,10.254.8.0/24,10.82.0.0/19
+ipg-secuty-privte-opvlan-testng		192.168.188.22,192.168.188.23
+ipg-secuty-privte-opvlan-scanng		192.168.204.86,192.168.204.17,192.168.173.161,192.168.173.168,192.168.173.169,192.168.173.162
+ipg-secuty-privte-opvlan-wificp		192.168.240.0/21
+
+****************************************************************************
+****************************************************************************
+4. FASE 1 - ACTIVIDADES PREVIAS - AZURE FIREWALL
+
+* Utilizar el Resource Group "existente":
+rg-platfr-secuty-public-trv-i
+
+* Azure Firewall:
+afw-secuty-public-centrl-trv-i
+	- SubNET name "existente":	
+	AzureFirewallSubnet
+	- SubNET CIDR "existente":
+	10.204.1.128/26
+
+* Public IP Azure Firewall:
+pip-afw-secuty-public-centrl-trv-i
+
+* Firewall Policy:
+afwp-afw-secuty-public-centrl-trv-i
+	- Rules:
+	Configuradas en el archivo de excel:  AZ Firewall Policy.xlsx
+
+****************************************************************************
+****************************************************************************
+5. FASE 1 - ACTIVIDADES PREVIAS - LOG ANALYTICS
+
+* Utilizar el Resource Group "existente":
+rg-platfr-secuty-public-trv-i
+
+*Log Analytics workspaces:
+log-secuty-public-centrl-trv-i
+
+****************************************************************************
+****************************************************************************
+6. FASE 1 - ACTIVIDADES PREVIAS - UDR GATEWAY SUBNET
+
+* Utilizar el Resource Group "existente":
+rg-platfr-secuty-public-trv-i
+
+* Route table:
+rt-snet-GatewaySubnet-trv-i
+
+Propagate gateway routes       YES
+
+Name						Address prefix		Next hop type		Next hop IP address
+rt-vnet-netwrk-centrl-main-dvl-i-01		10.89.0.0/20		Virtual appliance	10.204.1.132
+rt-vnet-netwrk-centrl-main-dvl-i-02		10.89.16.0/20		Virtual appliance	10.204.1.132
+rt-vnet-netwrk-centrl-main-dvl-i-03		10.89.32.0/20		Virtual appliance	10.204.1.132
+rt-vnet-netwrk-centrl-main-dvl-i-04		10.89.48.0/20		Virtual appliance	10.204.1.132
+rt-vnet-netwrk-centrl-main-tst-i-01		10.89.128.0/20		Virtual appliance	10.204.1.132
+rt-vnet-netwrk-centrl-main-tst-i-02		10.89.144.0/20		Virtual appliance	10.204.1.132
+rt-vnet-netwrk-centrl-main-tst-i-03		10.89.160.0/20		Virtual appliance	10.204.1.132
+rt-vnet-netwrk-centrl-main-tst-i-04		10.89.176.0/20		Virtual appliance	10.204.1.132
+rt-vnet-netwrk-centrl-main-prp-i-01		10.205.0.0/20		Virtual appliance	10.204.1.132
+rt-vnet-netwrk-centrl-main-prp-i-02		10.205.16.0/20		Virtual appliance	10.204.1.132
+rt-vnet-netwrk-centrl-main-prp-i-03		10.205.32.0/20		Virtual appliance	10.204.1.132
+rt-vnet-netwrk-centrl-main-prp-i-04		10.205.48.0/20		Virtual appliance	10.204.1.132
+rt-vnet-netwrk-centrl-main-prd-i-01		10.203.0.0/20		Virtual appliance	10.204.1.132
+rt-vnet-netwrk-centrl-main-prd-i-02		10.203.16.0/20		Virtual appliance	10.204.1.132
+rt-vnet-netwrk-centrl-main-prd-i-03		10.203.32.0/20		Virtual appliance	10.204.1.132
+rt-vnet-netwrk-centrl-main-prd-i-04		10.203.48.0/20		Virtual appliance	10.204.1.132
+rt-vnet-netwrk-centrl-main-trv-i-01		10.204.0.0/20		Virtual appliance	10.204.1.132
+rt-vnet-netwrk-centrl-main-poc-i-01		10.204.240.0/20		Virtual appliance	10.204.1.132
+rt-vpn-sts-compensar-ccf-aws-dev		10.19.0.0/16		virtual network gateway
+rt-vpn-sts-compensar-ccf-aws-test		10.20.0.0/16		virtual network gateway
+rt-vpn-sts-compensar-ccf-aws-preprod		10.24.0.0/16		virtual network gateway
+rt-vpn-sts-compensar-ccf-aws-prod		10.21.0.0/16		virtual network gateway
+rt-vpn-sts-compensar-ccf-aws-hub		10.83.0.0/16		virtual network gateway
+rt-vpn-sts-compensar-salud-azure-noprod-01	172.27.216.0/21		virtual network gateway
+rt-vpn-sts-compensar-salud-azure-noprod-02	172.27.224.0/23		virtual network gateway
+rt-vpn-sts-compensar-salud-azure-noprod-03	172.27.232.0/23		virtual network gateway
+rt-vpn-sts-compensar-salud-azure-noprod-04	172.27.234.0/24		virtual network gateway
+rt-vpn-sts-compensar-salud-azure-prod-01	172.27.150.0/23		virtual network gateway
+rt-vpn-sts-compensar-salud-azure-prod-02	172.27.251.0/24		virtual network gateway
+rt-vpn-sts-ciel-azure-digiturno			10.204.224.0/26		virtual network gateway
+
+****************************************************************************
+****************************************************************************
+7. FASE 2 - ACTIVIDADES VENTANA - ELIMINAR PEERINGS HUB TRANSVERSAL (MANUAL)
+
+peer-vnetmain-transversal-to-vnet-netwrk-centrl-main-prd-i
+peer-vnetmain-transversal-to-vnet-netwrk-centrl-main-dvl-i
+peer-vnetmain-transversal-to-vnet-netwrk-centrl-main-tst-i
+peer-vnetmain-transversal-to-vnet-extnal-compen-consal-hub-noprod
+peer-vnetmain-transversal-to-vnet-extnal-compen-consal-fw-prod
+peer-vnetmain-transversal-to-vnet-netwrk-centrl-main-trv-i
+peer-vnetmain-transversal-to-vnet-netwrk-centrl-main-prp-i
+peer-vnetmain-transversal-to-vnet-netwrk-centrl-main-poc-i
+peer-vnetmain-transversal-to-RedNP
+
+****************************************************************************
+****************************************************************************
+8. FASE 2 - ACTIVIDADES VENTANA - DESPLEGAR NUEVOS VNG's
+
+* Utilizar el Resource Group "existente":
+rg-platfr-secuty-public-trv-i
+
+* Virtual Network Gateway VPN S2S:
+vgw-secuty-public-vpnsec-trv-i
+	- SubNET name "existente":
+	GatewaySubnet
+	- SubNET CIDR  "existente":
+	10.204.0.128/26
+
+* Public IP VNG VPN S2S
+pip-vgw-secuty-public-vpnsec-trv-i
+
+
+* Virtual Network Gateway Express Route:
+vgw-secuty-public-exprte-trv-i
+
+	- SubNET name "existente":
+	GatewaySubnet
+	- SubNET CIDR "existente":
+	10.204.0.128/26
+
+* Public IP VNG Express Route
+pip-vgw-secuty-public-exprte-trv-i
+
+****************************************************************************
+****************************************************************************
+9. FASE 2 - ACTIVIDADES VENTANA - DESPLEGAR CONNECTIONS y LOCAL NETWORK GATEWAY VPN & ER
+
+* Utilizar el Resource Group "existente":
+rg-platfr-secuty-public-trv-i
+
+con-secuty-vpnsts-compensar-ccf-onpremise-trv-i
+lgw-con-secuty-vpnsts-compensar-ccf-onpremise-trv-i
+
+con-secuty-vpnsts-compensar-ccf-aws-preprod-trv-i
+lgw-con-secuty-vpnsts-compensar-ccf-aws-preprod-trv-i
+
+con-secuty-vpnsts-compensar-salud-azure-prod-trv-i
+lgw-con-secuty-vpnsts-compensar-salud-azure-prod-trv-i
+
+con-secuty-vpnsts-compensar-salud-azure-noprod-trv-i
+lgw-con-secuty-vpnsts-compensar-salud-azure-noprod-trv-i
+
+con-secuty-vpnsts-ciel-azure-digiturno-trv-i
+lgw-con-secuty-vpnsts-ciel-azure-digiturno-trv-i
+
+
+con-secuty-exprte-compensar-ccf-onpremise-trv-i
+erc-con-secuty-exprte-compensar-ccf-onpremise-trv-i
+
+****************************************************************************
+****************************************************************************
+10. FASE 2 - ACTIVIDADES VENTANA - CONFIGURAR CONNECTIONS & LNG VPN STS
+
+
+* VPN STS - compensar-ccf-onpremise
+IKE PHASE 1
+dh_group		DHGroup2
+ike_encryption		AES256
+ike_integrity		SHA1
+
+IKE PHASE 2 (IPSEC)
+ipsec_encryption	AES256
+ipsec_integrity		SHA1
+pfs_group		PFS2
+sa_datasize		1024
+sa_lifetime		3600
+
+Shared Key:		C0mp3ns4RAbC951
+
+gateway_address		190.143.65.198
+address_space		10.82.0.0/19, 10.250.0.0/23, 10.254.0.0/20, 172.18.162.0/24, 192.168.0.0/16
+
+
+* VPN STS - compensar-ccf-aws-preprod
+IKE PHASE 1
+dh_group		DHGroup14
+ike_encryption		AES256
+ike_integrity		SHA256
+
+IKE PHASE 2 (IPSEC)
+ipsec_encryption	AES256
+ipsec_integrity		SHA256
+pfs_group		None
+sa_datasize		0
+sa_lifetime		3600
+
+Shared Key:		ZDVFvlJTI0ybvEWRvHDnsCtedHa7FyZD
+
+gateway_address		3.218.54.89
+address_space		10.24.0.0/16
+
+
+* VPN STS - compensar-salud-azure-prod
+IKE PHASE 1
+dh_group		DHGroup2
+ike_encryption		AES256
+ike_integrity		SHA1
+
+IKE PHASE 2 (IPSEC)
+ipsec_encryption	AES256
+ipsec_integrity		SHA1
+pfs_group		PFS2
+sa_datasize		0
+sa_lifetime		3600
+
+Shared Key:		C0mp3ns4RSH4r4d**KEYProdct
+
+gateway_address		52.138.120.126
+address_space		172.27.150.0/23, 172.27.251.0/24
+
+
+* VPN STS - compensar-salud-azure-noprod
+IKE PHASE 1
+dh_group		DHGroup2
+ike_encryption		AES256
+ike_integrity		SHA1
+
+IKE PHASE 2 (IPSEC)
+ipsec_encryption	AES256
+ipsec_integrity		SHA1
+pfs_group		PFS2
+sa_datasize		0
+sa_lifetime		3600
+
+Shared Key:		C0mp3ns4RSH4r8d**KEYNoProd
+
+gateway_address		20.10.22.171
+address_space		172.27.216.0/21, 172.27.224.0/23, 172.27.232.0/23, 172.27.234.0/24
+
+
+* VPN STS - ciel-azure-digiturno
+IKE PHASE 1
+dh_group		DHGroup24
+ike_encryption		AES256
+ike_integrity		SHA256
+
+IKE PHASE 2 (IPSEC)
+ipsec_encryption	AES256
+ipsec_integrity		SHA256
+pfs_group		PFS24
+sa_datasize		0
+sa_lifetime		28800
+
+Shared Key:		GxV9TMSpltMRh8&@ot#pqJMRdp3OZsAN
+
+gateway_address		40.77.5.149
+address_space		10.204.224.0/26
+
+****************************************************************************
+****************************************************************************
+11. FASE 2 - ACTIVIDADES VENTANA - CONFIGURAR PEERINGS NUEVO HUB & SPOKES
+
+* Utilizar el Resource Group "existente":
+rg-platfr-netwrk-centrl-trv-i
+
+peer-vnet-netwrk-centrl-main-trv-i-to-vnet-netwrk-centrl-main-dvl-i vs peer-vnet-netwrk-centrl-main-dvl-i-to-vnet-netwrk-centrl-main-trv-i
+peer-vnet-netwrk-centrl-main-trv-i-to-vnet-netwrk-centrl-main-tst-i vs peer-vnet-netwrk-centrl-main-tst-i-to-vnet-netwrk-centrl-main-trv-i
+peer-vnet-netwrk-centrl-main-trv-i-to-vnet-netwrk-centrl-main-prp-i vs peer-vnet-netwrk-centrl-main-prp-i-to-vnet-netwrk-centrl-main-trv-i
+peer-vnet-netwrk-centrl-main-trv-i-to-vnet-netwrk-centrl-main-prd-i vs peer-vnet-netwrk-centrl-main-prd-i-to-vnet-netwrk-centrl-main-trv-i
+peer-vnet-netwrk-centrl-main-trv-i-to-vnet-netwrk-centrl-main-poc-i vs peer-vnet-netwrk-centrl-main-poc-i-to-vnet-netwrk-centrl-main-trv-i
+
+****************************************************************************
+****************************************************************************
+12. FASE 2 - ACTIVIDADES VENTANA - ACTUALIZAR UDR'S
+
+* Todas las UDR's de todas las suscripciones deben apuntar al nuevo "Next hop IP address" del Nuevo AZ Firewall: 10.204.1.132
+* Todas las UDR, tienen al menos este contenido de rutas, las cuales se deben actualizar:
+
+Name				Address prefix		Next hop type		Next hop IP address
+rt-default-internet		0.0.0.0/0		VirtualAppliance	10.200.60.68
+rt-on-premise-10.0.0.0-8	10.0.0.0/8		VirtualAppliance	10.200.60.68
+rt-on-premise-172.16.0.0-12	172.16.0.0/12		VirtualAppliance	10.200.60.68
+rt-on-premise-192.168.0.0-16	192.168.0.0/16		VirtualAppliance	10.200.60.68
+rt-az-trv-i-10.204.0.0-20	10.204.0.0/20		VirtualAppliance	10.200.60.68
+
+
+NAME						SUBSCRIPTION			RESOURCE GROUP
+
+rt-snet-aks-ebxtdv-centrl-manage-dvl-i		Compensar_Corp_Azure_Dvl_I	rg-platfr-netwrk-centrl-dvl-i
+rt-snet-aks-introp-centrl-manage-dvl-i		Compensar_Corp_Azure_Dvl_I	rg-platfr-netwrk-centrl-dvl-i
+rt-snet-aks-medpre-transv-manage-dvl-i		Compensar_Corp_Azure_Dvl_I	rg-platfr-netwrk-centrl-dvl-i
+rt-snet-asp-consol-centrl-chgfed-dvl-i		Compensar_Corp_Azure_Dvl_I	rg-platfr-netwrk-centrl-dvl-i
+rt-snet-asp-consol-centrl-srvadc-dvl-i		Compensar_Corp_Azure_Dvl_I	rg-platfr-netwrk-centrl-dvl-i
+rt-snet-asp-consol-centrl-srvchr-dvl-i		Compensar_Corp_Azure_Dvl_I	rg-platfr-netwrk-centrl-dvl-i
+rt-snet-asp-consol-centrl-srvitr-dvl-i		Compensar_Corp_Azure_Dvl_I	rg-platfr-netwrk-centrl-dvl-i
+rt-snet-asp-consol-centrl-srvlay-dvl-i		Compensar_Corp_Azure_Dvl_I	rg-platfr-netwrk-centrl-dvl-i
+rt-snet-asp-consol-centrl-srvrep-dvl-i		Compensar_Corp_Azure_Dvl_I	rg-platfr-netwrk-centrl-dvl-i
+rt-snet-asp-consol-centrl-syncro-dvl-i		Compensar_Corp_Azure_Dvl_I	rg-platfr-netwrk-centrl-dvl-i
+rt-snet-asp-docval-extrct-transc-dvl-i		Compensar_Corp_Azure_Dvl_I	rg-platfr-netwrk-centrl-dvl-i
+rt-snet-asp-introp-apibus-secbkd-dvl-i		Compensar_Corp_Azure_Dvl_I	rg-platfr-netwrk-centrl-dvl-i
+rt-snet-asp-introp-calcat-srvcat-dvl-i		Compensar_Corp_Azure_Dvl_I	rg-platfr-netwrk-centrl-dvl-i
+rt-snet-asp-introp-intrac-srvprc-dvl-i		Compensar_Corp_Azure_Dvl_I	rg-platfr-netwrk-centrl-dvl-i
+rt-snet-asp-introp-stream-srvdup-dvl-i		Compensar_Corp_Azure_Dvl_I	rg-platfr-netwrk-centrl-dvl-i
+rt-snet-asp-introp-stream-srvprc-dvl-i		Compensar_Corp_Azure_Dvl_I	rg-platfr-netwrk-centrl-dvl-i
+rt-snet-asp-logsce-centrl-srvlog-dvl-i		Compensar_Corp_Azure_Dvl_I	rg-platfr-netwrk-centrl-dvl-i
+rt-snet-asp-secuty-secrot-trakng-dvl-i		Compensar_Corp_Azure_Dvl_I	rg-platfr-netwrk-centrl-dvl-i
+rt-snet-asp-syncro-stream-transc-dvl-i		Compensar_Corp_Azure_Dvl_I	rg-platfr-netwrk-centrl-dvl-i
+rt-snet-asp-syncro-stream-trvmdm-dvl-i		Compensar_Corp_Azure_Dvl_I	rg-platfr-netwrk-centrl-dvl-i
+rt-snet-dbw-bibaf2-centrl-transc-prv-dvl-i	Compensar_Corp_Azure_Dvl_I	rg-platfr-netwrk-centrl-dvl-i
+rt-snet-dbw-bibaf2-centrl-transc-pub-dvl-i	Compensar_Corp_Azure_Dvl_I	rg-platfr-netwrk-centrl-dvl-i
+rt-snet-dbw-bnstar-centrl-sndbox-prv-dvl-i	Compensar_Corp_Azure_Dvl_I	rg-platfr-netwrk-centrl-dvl-i
+rt-snet-dbw-bnstar-centrl-sndbox-pub-dvl-i	Compensar_Corp_Azure_Dvl_I	rg-platfr-netwrk-centrl-dvl-i
+rt-snet-dbw-consol-centrl-inload-prv-dvl-i	Compensar_Corp_Azure_Dvl_I	rg-platfr-netwrk-centrl-dvl-i
+rt-snet-dbw-consol-centrl-inload-pub-dvl-i	Compensar_Corp_Azure_Dvl_I	rg-platfr-netwrk-centrl-dvl-i
+rt-snet-dbw-csalud-carini-inload-prv-dvl-i	Compensar_Corp_Azure_Dvl_I	rg-platfr-netwrk-centrl-dvl-i
+rt-snet-dbw-csalud-carini-inload-pub-dvl-i	Compensar_Corp_Azure_Dvl_I	rg-platfr-netwrk-centrl-dvl-i
+rt-snet-dbw-financ-dkcart-transc-prv-dvl-i	Compensar_Corp_Azure_Dvl_I	rg-platfr-netwrk-centrl-dvl-i
+rt-snet-dbw-financ-dkcart-transc-pub-dvl-i	Compensar_Corp_Azure_Dvl_I	rg-platfr-netwrk-centrl-dvl-i
+rt-snet-dbw-logsce-centrl-manage-prv-dvl-i	Compensar_Corp_Azure_Dvl_I	rg-platfr-netwrk-centrl-dvl-i
+rt-snet-dbw-logsce-centrl-manage-pub-dvl-i	Compensar_Corp_Azure_Dvl_I	rg-platfr-netwrk-centrl-dvl-i
+rt-snet-dbw-shared-integr-ingorc-prv-dvl-i	Compensar_Corp_Azure_Dvl_I	rg-platfr-netwrk-centrl-dvl-i
+rt-snet-dbw-shared-integr-ingorc-pub-dvl-i	Compensar_Corp_Azure_Dvl_I	rg-platfr-netwrk-centrl-dvl-i
+rt-snet-netwrk-centrl-api-dvl-i			Compensar_Corp_Azure_Dvl_I	rg-platfr-netwrk-centrl-dvl-i
+rt-snet-netwrk-centrl-app-dvl-i			Compensar_Corp_Azure_Dvl_I	rg-platfr-netwrk-centrl-dvl-i
+rt-snet-netwrk-centrl-db-dvl-i			Compensar_Corp_Azure_Dvl_I	rg-platfr-netwrk-centrl-dvl-i
+rt-snet-netwrk-centrl-dmz-dvl-i			Compensar_Corp_Azure_Dvl_I	rg-platfr-netwrk-centrl-dvl-i
+rt-snet-netwrk-centrl-pwbidg-dvl-i		Compensar_Corp_Azure_Dvl_I	rg-platfr-netwrk-centrl-dvl-i
+rt-snet-netwrk-centrl-st-dvl-i			Compensar_Corp_Azure_Dvl_I	rg-platfr-netwrk-centrl-dvl-i
+rt-snet-netwrk-centrl-vault-dvl-i		Compensar_Corp_Azure_Dvl_I	rg-platfr-netwrk-centrl-dvl-i
+rt-snet-psql-medpre-transv-manage-dvl-i		Compensar_Corp_Azure_Dvl_I	rg-platfr-netwrk-centrl-dvl-i
+
+rt-snet-aks-aproof-concpt-transc-poc-i		Compensar_Corp_Azure_Poc_I	rg-platfr-netwrk-centrl-poc-i
+rt-snet-asp-aproof-concpt-transc-poc-i		Compensar_Corp_Azure_Poc_I	rg-platfr-netwrk-centrl-poc-i
+rt-snet-asp-bproof-concpt-transc-poc-i		Compensar_Corp_Azure_Poc_I	rg-platfr-netwrk-centrl-poc-i
+rt-snet-asp-cproof-concpt-transc-poc-i		Compensar_Corp_Azure_Poc_I	rg-platfr-netwrk-centrl-poc-i
+rt-snet-dbw-aproof-concpt-transc-prv-poc-i	Compensar_Corp_Azure_Poc_I	rg-platfr-netwrk-centrl-poc-i
+rt-snet-dbw-aproof-concpt-transc-pub-poc-i	Compensar_Corp_Azure_Poc_I	rg-platfr-netwrk-centrl-poc-i
+rt-snet-dbw-bproof-concpt-transc-prv-poc-i	Compensar_Corp_Azure_Poc_I	rg-platfr-netwrk-centrl-poc-i
+rt-snet-dbw-bproof-concpt-transc-pub-poc-i	Compensar_Corp_Azure_Poc_I	rg-platfr-netwrk-centrl-poc-i
+rt-snet-netwrk-centrl-api-poc-i			Compensar_Corp_Azure_Poc_I	rg-platfr-netwrk-centrl-poc-i
+rt-snet-netwrk-centrl-app-poc-i			Compensar_Corp_Azure_Poc_I	rg-platfr-netwrk-centrl-poc-i
+rt-snet-netwrk-centrl-db-poc-i			Compensar_Corp_Azure_Poc_I	rg-platfr-netwrk-centrl-poc-i
+rt-snet-netwrk-centrl-dmz-poc-i			Compensar_Corp_Azure_Poc_I	rg-platfr-netwrk-centrl-poc-i
+rt-snet-netwrk-centrl-st-poc-i			Compensar_Corp_Azure_Poc_I	rg-platfr-netwrk-centrl-poc-i
+rt-snet-netwrk-centrl-vault-poc-i		Compensar_Corp_Azure_Poc_I	rg-platfr-netwrk-centrl-poc-i
+
+rt-snet-aks-ebxtdv-centrl-manage-prd-i		Compensar_Corp_Azure_Prd_I	rg-platfr-netwrk-centrl-prd-i
+rt-snet-aks-introp-centrl-manage-prd-i		Compensar_Corp_Azure_Prd_I	rg-platfr-netwrk-centrl-prd-i
+rt-snet-aks-medpre-transv-manage-prd-i		Compensar_Corp_Azure_Prd_I	rg-platfr-netwrk-centrl-prd-i
+rt-snet-asp-consol-centrl-chgfed-prd-i		Compensar_Corp_Azure_Prd_I	rg-platfr-netwrk-centrl-prd-i
+rt-snet-asp-consol-centrl-srvadc-prd-i		Compensar_Corp_Azure_Prd_I	rg-platfr-netwrk-centrl-prd-i
+rt-snet-asp-consol-centrl-srvchr-prd-i		Compensar_Corp_Azure_Prd_I	rg-platfr-netwrk-centrl-prd-i
+rt-snet-asp-consol-centrl-srvitr-prd-i		Compensar_Corp_Azure_Prd_I	rg-platfr-netwrk-centrl-prd-i
+rt-snet-asp-consol-centrl-srvlay-prd-i		Compensar_Corp_Azure_Prd_I	rg-platfr-netwrk-centrl-prd-i
+rt-snet-asp-consol-centrl-srvrep-prd-i		Compensar_Corp_Azure_Prd_I	rg-platfr-netwrk-centrl-prd-i
+rt-snet-asp-consol-centrl-syncro-prd-i		Compensar_Corp_Azure_Prd_I	rg-platfr-netwrk-centrl-prd-i
+rt-snet-asp-docval-extrct-transc-prd-i		Compensar_Corp_Azure_Prd_I	rg-platfr-netwrk-centrl-prd-i
+rt-snet-asp-introp-apibus-secbkd-prd-i		Compensar_Corp_Azure_Prd_I	rg-platfr-netwrk-centrl-prd-i
+rt-snet-asp-introp-calcat-srvcat-prd-i		Compensar_Corp_Azure_Prd_I	rg-platfr-netwrk-centrl-prd-i
+rt-snet-asp-introp-intrac-srvprc-prd-i		Compensar_Corp_Azure_Prd_I	rg-platfr-netwrk-centrl-prd-i
+rt-snet-asp-introp-stream-srvdup-prd-i		Compensar_Corp_Azure_Prd_I	rg-platfr-netwrk-centrl-prd-i
+rt-snet-asp-introp-stream-srvprc-prd-i		Compensar_Corp_Azure_Prd_I	rg-platfr-netwrk-centrl-prd-i
+rt-snet-asp-logsce-centrl-srvlog-prd-i		Compensar_Corp_Azure_Prd_I	rg-platfr-netwrk-centrl-prd-i
+rt-snet-asp-secuty-secrot-trakng-prd-i		Compensar_Corp_Azure_Prd_I	rg-platfr-netwrk-centrl-prd-i
+rt-snet-asp-syncro-stream-transc-prd-i		Compensar_Corp_Azure_Prd_I	rg-platfr-netwrk-centrl-prd-i
+rt-snet-asp-syncro-stream-trvmdm-prd-i		Compensar_Corp_Azure_Prd_I	rg-platfr-netwrk-centrl-prd-i
+rt-snet-dbw-bibaf2-centrl-transc-prv-prd-i	Compensar_Corp_Azure_Prd_I	rg-platfr-netwrk-centrl-prd-i
+rt-snet-dbw-bibaf2-centrl-transc-pub-prd-i	Compensar_Corp_Azure_Prd_I	rg-platfr-netwrk-centrl-prd-i
+rt-snet-dbw-bnstar-centrl-sndbox-prv-prd-i	Compensar_Corp_Azure_Prd_I	rg-platfr-netwrk-centrl-prd-i
+rt-snet-dbw-bnstar-centrl-sndbox-pub-prd-i	Compensar_Corp_Azure_Prd_I	rg-platfr-netwrk-centrl-prd-i
+rt-snet-dbw-consol-centrl-inload-prv-prd-i	Compensar_Corp_Azure_Prd_I	rg-platfr-netwrk-centrl-prd-i
+rt-snet-dbw-consol-centrl-inload-pub-prd-i	Compensar_Corp_Azure_Prd_I	rg-platfr-netwrk-centrl-prd-i
+rt-snet-dbw-csalud-carini-inload-prv-prd-i	Compensar_Corp_Azure_Prd_I	rg-platfr-netwrk-centrl-prd-i
+rt-snet-dbw-csalud-carini-inload-pub-prd-i	Compensar_Corp_Azure_Prd_I	rg-platfr-netwrk-centrl-prd-i
+rt-snet-dbw-financ-dkcart-transc-prv-prd-i	Compensar_Corp_Azure_Prd_I	rg-platfr-netwrk-centrl-prd-i
+rt-snet-dbw-financ-dkcart-transc-pub-prd-i	Compensar_Corp_Azure_Prd_I	rg-platfr-netwrk-centrl-prd-i
+rt-snet-dbw-logsce-centrl-manage-prv-prd-i	Compensar_Corp_Azure_Prd_I	rg-platfr-netwrk-centrl-prd-i
+rt-snet-dbw-logsce-centrl-manage-pub-prd-i	Compensar_Corp_Azure_Prd_I	rg-platfr-netwrk-centrl-prd-i
+rt-snet-dbw-shared-integr-ingorc-prv-prd-i	Compensar_Corp_Azure_Prd_I	rg-platfr-netwrk-centrl-prd-i
+rt-snet-dbw-shared-integr-ingorc-pub-prd-i	Compensar_Corp_Azure_Prd_I	rg-platfr-netwrk-centrl-prd-i
+rt-snet-netwrk-centrl-api-prd-i			Compensar_Corp_Azure_Prd_I	rg-platfr-netwrk-centrl-prd-i
+rt-snet-netwrk-centrl-app-prd-i			Compensar_Corp_Azure_Prd_I	rg-platfr-netwrk-centrl-prd-i
+rt-snet-netwrk-centrl-db-prd-i			Compensar_Corp_Azure_Prd_I	rg-platfr-netwrk-centrl-prd-i
+rt-snet-netwrk-centrl-dmz-prd-i			Compensar_Corp_Azure_Prd_I	rg-platfr-netwrk-centrl-prd-i
+rt-snet-netwrk-centrl-pwbidg-prd-i		Compensar_Corp_Azure_Prd_I	rg-platfr-netwrk-centrl-prd-i
+rt-snet-netwrk-centrl-st-prd-i			Compensar_Corp_Azure_Prd_I	rg-platfr-netwrk-centrl-prd-i
+rt-snet-netwrk-centrl-vault-prd-i		Compensar_Corp_Azure_Prd_I	rg-platfr-netwrk-centrl-prd-i
+rt-snet-psql-medpre-transv-manage-prd-i		Compensar_Corp_Azure_Prd_I	rg-platfr-netwrk-centrl-prd-i
+rt-snet-aks-ebxtdv-centrl-manage-prp-i		Compensar_Corp_Azure_Prp_I	rg-platfr-netwrk-centrl-prp-i
+rt-snet-aks-introp-centrl-manage-prp-i		Compensar_Corp_Azure_Prp_I	rg-platfr-netwrk-centrl-prp-i
+rt-snet-aks-medpre-transv-manage-prp-i		Compensar_Corp_Azure_Prp_I	rg-platfr-netwrk-centrl-prp-i
+rt-snet-asp-consol-centrl-chgfed-prp-i		Compensar_Corp_Azure_Prp_I	rg-platfr-netwrk-centrl-prp-i
+rt-snet-asp-consol-centrl-srvadc-prp-i		Compensar_Corp_Azure_Prp_I	rg-platfr-netwrk-centrl-prp-i
+rt-snet-asp-consol-centrl-srvchr-prp-i		Compensar_Corp_Azure_Prp_I	rg-platfr-netwrk-centrl-prp-i
+rt-snet-asp-consol-centrl-srvitr-prp-i		Compensar_Corp_Azure_Prp_I	rg-platfr-netwrk-centrl-prp-i
+rt-snet-asp-consol-centrl-srvlay-prp-i		Compensar_Corp_Azure_Prp_I	rg-platfr-netwrk-centrl-prp-i
+rt-snet-asp-consol-centrl-srvrep-prp-i		Compensar_Corp_Azure_Prp_I	rg-platfr-netwrk-centrl-prp-i
+rt-snet-asp-consol-centrl-syncro-prp-i		Compensar_Corp_Azure_Prp_I	rg-platfr-netwrk-centrl-prp-i
+rt-snet-asp-docval-extrct-transc-prp-i		Compensar_Corp_Azure_Prp_I	rg-platfr-netwrk-centrl-prp-i
+rt-snet-asp-introp-apibus-secbkd-prp-i		Compensar_Corp_Azure_Prp_I	rg-platfr-netwrk-centrl-prp-i
+rt-snet-asp-introp-calcat-srvcat-prp-i		Compensar_Corp_Azure_Prp_I	rg-platfr-netwrk-centrl-prp-i
+rt-snet-asp-introp-intrac-srvprc-prp-i		Compensar_Corp_Azure_Prp_I	rg-platfr-netwrk-centrl-prp-i
+rt-snet-asp-introp-stream-srvdup-prp-i		Compensar_Corp_Azure_Prp_I	rg-platfr-netwrk-centrl-prp-i
+rt-snet-asp-introp-stream-srvprc-prp-i		Compensar_Corp_Azure_Prp_I	rg-platfr-netwrk-centrl-prp-i
+rt-snet-asp-logsce-centrl-srvlog-prp-i		Compensar_Corp_Azure_Prp_I	rg-platfr-netwrk-centrl-prp-i
+rt-snet-asp-secuty-secrot-trakng-prp-i		Compensar_Corp_Azure_Prp_I	rg-platfr-netwrk-centrl-prp-i
+rt-snet-asp-syncro-stream-transc-prp-i		Compensar_Corp_Azure_Prp_I	rg-platfr-netwrk-centrl-prp-i
+rt-snet-asp-syncro-stream-trvmdm-prp-i		Compensar_Corp_Azure_Prp_I	rg-platfr-netwrk-centrl-prp-i
+rt-snet-dbw-bibaf2-centrl-transc-prv-prp-i	Compensar_Corp_Azure_Prp_I	rg-platfr-netwrk-centrl-prp-i
+rt-snet-dbw-bibaf2-centrl-transc-pub-prp-i	Compensar_Corp_Azure_Prp_I	rg-platfr-netwrk-centrl-prp-i
+rt-snet-dbw-bnstar-centrl-sndbox-prv-prp-i	Compensar_Corp_Azure_Prp_I	rg-platfr-netwrk-centrl-prp-i
+rt-snet-dbw-bnstar-centrl-sndbox-pub-prp-i	Compensar_Corp_Azure_Prp_I	rg-platfr-netwrk-centrl-prp-i
+rt-snet-dbw-consol-centrl-inload-prv-prp-i	Compensar_Corp_Azure_Prp_I	rg-platfr-netwrk-centrl-prp-i
+rt-snet-dbw-consol-centrl-inload-pub-prp-i	Compensar_Corp_Azure_Prp_I	rg-platfr-netwrk-centrl-prp-i
+rt-snet-dbw-csalud-carini-inload-prv-prp-i	Compensar_Corp_Azure_Prp_I	rg-platfr-netwrk-centrl-prp-i
+rt-snet-dbw-csalud-carini-inload-pub-prp-i	Compensar_Corp_Azure_Prp_I	rg-platfr-netwrk-centrl-prp-i
+rt-snet-dbw-financ-dkcart-transc-prv-prp-i	Compensar_Corp_Azure_Prp_I	rg-platfr-netwrk-centrl-prp-i
+rt-snet-dbw-financ-dkcart-transc-pub-prp-i	Compensar_Corp_Azure_Prp_I	rg-platfr-netwrk-centrl-prp-i
+rt-snet-dbw-logsce-centrl-manage-prv-prp-i	Compensar_Corp_Azure_Prp_I	rg-platfr-netwrk-centrl-prp-i
+rt-snet-dbw-logsce-centrl-manage-pub-prp-i	Compensar_Corp_Azure_Prp_I	rg-platfr-netwrk-centrl-prp-i
+rt-snet-dbw-shared-integr-ingorc-prv-prp-i	Compensar_Corp_Azure_Prp_I	rg-platfr-netwrk-centrl-prp-i
+rt-snet-dbw-shared-integr-ingorc-pub-prp-i	Compensar_Corp_Azure_Prp_I	rg-platfr-netwrk-centrl-prp-i
+rt-snet-netwrk-centrl-api-prp-i			Compensar_Corp_Azure_Prp_I	rg-platfr-netwrk-centrl-prp-i
+rt-snet-netwrk-centrl-app-prp-i			Compensar_Corp_Azure_Prp_I	rg-platfr-netwrk-centrl-prp-i
+rt-snet-netwrk-centrl-db-prp-i			Compensar_Corp_Azure_Prp_I	rg-platfr-netwrk-centrl-prp-i
+rt-snet-netwrk-centrl-dmz-prp-i			Compensar_Corp_Azure_Prp_I	rg-platfr-netwrk-centrl-prp-i
+rt-snet-netwrk-centrl-pwbidg-prp-i		Compensar_Corp_Azure_Prp_I	rg-platfr-netwrk-centrl-prp-i
+rt-snet-netwrk-centrl-st-prp-i			Compensar_Corp_Azure_Prp_I	rg-platfr-netwrk-centrl-prp-i
+rt-snet-netwrk-centrl-vault-prp-i		Compensar_Corp_Azure_Prp_I	rg-platfr-netwrk-centrl-prp-i
+rt-snet-psql-medpre-transv-manage-prp-i		Compensar_Corp_Azure_Prp_I	rg-platfr-netwrk-centrl-prp-i
+
+rt-snet-firwll-sdwanf-dircon-trv-i		Compensar_Corp_Azure_Trv_I	rg-platfr-netwrk-centrl-trv-i
+rt-snet-firwll-sdwanf-exrout-trv-i		Compensar_Corp_Azure_Trv_I	rg-platfr-netwrk-centrl-trv-i
+rt-snet-firwll-sdwanf-mngmnt-trv-i		Compensar_Corp_Azure_Trv_I	rg-platfr-netwrk-centrl-trv-i
+rt-snet-firwll-sdwanf-privte-trv-i		Compensar_Corp_Azure_Trv_I	rg-platfr-netwrk-centrl-trv-i
+rt-snet-firwll-sdwanf-public-trv-i		Compensar_Corp_Azure_Trv_I	rg-platfr-netwrk-centrl-trv-i
+rt-snet-firwll-sdwanf-syncro-trv-i		Compensar_Corp_Azure_Trv_I	rg-platfr-netwrk-centrl-trv-i
+rt-snet-netwrk-centrl-agwpub-trv-i		Compensar_Corp_Azure_Trv_I	rg-platfr-netwrk-centrl-trv-i
+rt-snet-netwrk-centrl-applic-trv-i		Compensar_Corp_Azure_Trv_I	rg-platfr-netwrk-centrl-trv-i
+rt-snet-netwrk-centrl-datbse-trv-i		Compensar_Corp_Azure_Trv_I	rg-platfr-netwrk-centrl-trv-i
+rt-snet-netwrk-centrl-mngmnt-trv-i		Compensar_Corp_Azure_Trv_I	rg-platfr-netwrk-centrl-trv-i
+rt-snet-netwrk-centrl-stoacc-trv-i		Compensar_Corp_Azure_Trv_I	rg-platfr-netwrk-centrl-trv-i
+rt-snet-netwrk-centrl-vaults-trv-i		Compensar_Corp_Azure_Trv_I	rg-platfr-netwrk-centrl-trv-i
+rt-snet-netwrk-dnspra-inbepa-trv-i		Compensar_Corp_Azure_Trv_I	rg-platfr-netwrk-centrl-trv-i
+rt-snet-netwrk-dnspra-inbepb-trv-i		Compensar_Corp_Azure_Trv_I	rg-platfr-netwrk-centrl-trv-i
+rt-snet-netwrk-dnspra-inbepc-trv-i		Compensar_Corp_Azure_Trv_I	rg-platfr-netwrk-centrl-trv-i
+rt-snet-netwrk-dnspra-inbepd-trv-i		Compensar_Corp_Azure_Trv_I	rg-platfr-netwrk-centrl-trv-i
+rt-snet-netwrk-dnspra-outepa-trv-i		Compensar_Corp_Azure_Trv_I	rg-platfr-netwrk-centrl-trv-i
+rt-snet-netwrk-dnspra-outepb-trv-i		Compensar_Corp_Azure_Trv_I	rg-platfr-netwrk-centrl-trv-i
+rt-snet-netwrk-dnspra-outepc-trv-i		Compensar_Corp_Azure_Trv_I	rg-platfr-netwrk-centrl-trv-i
+rt-snet-netwrk-dnspra-outepd-trv-i		Compensar_Corp_Azure_Trv_I	rg-platfr-netwrk-centrl-trv-i
+rt-snet-netwrk-tempra-jmeter-trv-i		Compensar_Corp_Azure_Trv_I	rg-platfr-netwrk-centrl-trv-i
+rt-snet-netwrk-temprb-gclint-trv-i		Compensar_Corp_Azure_Trv_I	rg-platfr-netwrk-centrl-trv-i
+
+rt-snet-aks-ebxtdv-centrl-manage-tst-i		Compensar_Corp_Azure_Tst_I	rg-platfr-netwrk-centrl-tst-i
+rt-snet-aks-introp-centrl-manage-tst-i		Compensar_Corp_Azure_Tst_I	rg-platfr-netwrk-centrl-tst-i
+rt-snet-aks-medpre-transv-manage-tst-i		Compensar_Corp_Azure_Tst_I	rg-platfr-netwrk-centrl-tst-i
+rt-snet-asp-consol-centrl-chgfed-tst-i		Compensar_Corp_Azure_Tst_I	rg-platfr-netwrk-centrl-tst-i
+rt-snet-asp-consol-centrl-srvadc-tst-i		Compensar_Corp_Azure_Tst_I	rg-platfr-netwrk-centrl-tst-i
+rt-snet-asp-consol-centrl-srvchr-tst-i		Compensar_Corp_Azure_Tst_I	rg-platfr-netwrk-centrl-tst-i
+rt-snet-asp-consol-centrl-srvitr-tst-i		Compensar_Corp_Azure_Tst_I	rg-platfr-netwrk-centrl-tst-i
+rt-snet-asp-consol-centrl-srvlay-tst-i		Compensar_Corp_Azure_Tst_I	rg-platfr-netwrk-centrl-tst-i
+rt-snet-asp-consol-centrl-srvrep-tst-i		Compensar_Corp_Azure_Tst_I	rg-platfr-netwrk-centrl-tst-i
+rt-snet-asp-consol-centrl-syncro-tst-i		Compensar_Corp_Azure_Tst_I	rg-platfr-netwrk-centrl-tst-i
+rt-snet-asp-docval-extrct-transc-tst-i		Compensar_Corp_Azure_Tst_I	rg-platfr-netwrk-centrl-tst-i
+rt-snet-asp-introp-apibus-secbkd-tst-i		Compensar_Corp_Azure_Tst_I	rg-platfr-netwrk-centrl-tst-i
+rt-snet-asp-introp-calcat-srvcat-tst-i		Compensar_Corp_Azure_Tst_I	rg-platfr-netwrk-centrl-tst-i
+rt-snet-asp-introp-intrac-srvprc-tst-i		Compensar_Corp_Azure_Tst_I	rg-platfr-netwrk-centrl-tst-i
+rt-snet-asp-introp-stream-srvdup-tst-i		Compensar_Corp_Azure_Tst_I	rg-platfr-netwrk-centrl-tst-i
+rt-snet-asp-introp-stream-srvprc-tst-i		Compensar_Corp_Azure_Tst_I	rg-platfr-netwrk-centrl-tst-i
+rt-snet-asp-logsce-centrl-srvlog-tst-i		Compensar_Corp_Azure_Tst_I	rg-platfr-netwrk-centrl-tst-i
+rt-snet-asp-secuty-secrot-trakng-tst-i		Compensar_Corp_Azure_Tst_I	rg-platfr-netwrk-centrl-tst-i
+rt-snet-asp-syncro-stream-transc-tst-i		Compensar_Corp_Azure_Tst_I	rg-platfr-netwrk-centrl-tst-i
+rt-snet-asp-syncro-stream-trvmdm-tst-i		Compensar_Corp_Azure_Tst_I	rg-platfr-netwrk-centrl-tst-i
+rt-snet-dbw-bibaf2-centrl-transc-prv-tst-i	Compensar_Corp_Azure_Tst_I	rg-platfr-netwrk-centrl-tst-i
+rt-snet-dbw-bibaf2-centrl-transc-pub-tst-i	Compensar_Corp_Azure_Tst_I	rg-platfr-netwrk-centrl-tst-i
+rt-snet-dbw-bnstar-centrl-sndbox-prv-tst-i	Compensar_Corp_Azure_Tst_I	rg-platfr-netwrk-centrl-tst-i
+rt-snet-dbw-bnstar-centrl-sndbox-pub-tst-i	Compensar_Corp_Azure_Tst_I	rg-platfr-netwrk-centrl-tst-i
+rt-snet-dbw-consol-centrl-inload-prv-tst-i	Compensar_Corp_Azure_Tst_I	rg-platfr-netwrk-centrl-tst-i
+rt-snet-dbw-consol-centrl-inload-pub-tst-i	Compensar_Corp_Azure_Tst_I	rg-platfr-netwrk-centrl-tst-i
+rt-snet-dbw-csalud-carini-inload-prv-tst-i	Compensar_Corp_Azure_Tst_I	rg-platfr-netwrk-centrl-tst-i
+rt-snet-dbw-csalud-carini-inload-pub-tst-i	Compensar_Corp_Azure_Tst_I	rg-platfr-netwrk-centrl-tst-i
+rt-snet-dbw-financ-dkcart-transc-prv-tst-i	Compensar_Corp_Azure_Tst_I	rg-platfr-netwrk-centrl-tst-i
+rt-snet-dbw-financ-dkcart-transc-pub-tst-i	Compensar_Corp_Azure_Tst_I	rg-platfr-netwrk-centrl-tst-i
+rt-snet-dbw-logsce-centrl-manage-prv-tst-i	Compensar_Corp_Azure_Tst_I	rg-platfr-netwrk-centrl-tst-i
+rt-snet-dbw-logsce-centrl-manage-pub-tst-i	Compensar_Corp_Azure_Tst_I	rg-platfr-netwrk-centrl-tst-i
+rt-snet-dbw-shared-integr-ingorc-prv-tst-i	Compensar_Corp_Azure_Tst_I	rg-platfr-netwrk-centrl-tst-i
+rt-snet-dbw-shared-integr-ingorc-pub-tst-i	Compensar_Corp_Azure_Tst_I	rg-platfr-netwrk-centrl-tst-i
+rt-snet-netwrk-centrl-api-tst-i			Compensar_Corp_Azure_Tst_I	rg-platfr-netwrk-centrl-tst-i
+rt-snet-netwrk-centrl-app-tst-i			Compensar_Corp_Azure_Tst_I	rg-platfr-netwrk-centrl-tst-i
+rt-snet-netwrk-centrl-db-tst-i			Compensar_Corp_Azure_Tst_I	rg-platfr-netwrk-centrl-tst-i
+rt-snet-netwrk-centrl-dmz-tst-i			Compensar_Corp_Azure_Tst_I	rg-platfr-netwrk-centrl-tst-i
+rt-snet-netwrk-centrl-pwbidg-tst-i		Compensar_Corp_Azure_Tst_I	rg-platfr-netwrk-centrl-tst-i
+rt-snet-netwrk-centrl-st-tst-i			Compensar_Corp_Azure_Tst_I	rg-platfr-netwrk-centrl-tst-i
+rt-snet-netwrk-centrl-vault-tst-i		Compensar_Corp_Azure_Tst_I	rg-platfr-netwrk-centrl-tst-i
+rt-snet-psql-medpre-transv-manage-tst-i		Compensar_Corp_Azure_Tst_I	rg-platfr-netwrk-centrl-tst-i
