@@ -5,8 +5,6 @@
 
 // Datos de prueba de Oscar Medina
 param subscriptionId string = '18bf3718-f695-4c96-8d45-72dc2e617d2e'
-
-//RG
 param RG string = 'rg-platfr-secuty-privte-trv-i'
 
 //Firewall Policy
