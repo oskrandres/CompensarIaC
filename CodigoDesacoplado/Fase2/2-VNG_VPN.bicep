@@ -28,14 +28,15 @@ resource virtualNetworkGateway 'Microsoft.Network/virtualNetworkGateways@2024-05
       }
     ]
     sku: {
-      name: 'VpnGw1AZ'
-      tier: 'VpnGw1AZ'
+      name: 'VpnGw2AZ'
+      tier: 'VpnGw2AZ'
     }
+    //*********************** VpnGw2AZ - generacion 2 
     gatewayType: 'Vpn'
     vpnType: 'RouteBased'
     enableBgp: false
     activeActive: false
-    vpnGatewayGeneration: 'Generation1'
+    vpnGatewayGeneration: 'Generation2'
     allowRemoteVnetTraffic: false
     allowVirtualWanTraffic: false
   }
