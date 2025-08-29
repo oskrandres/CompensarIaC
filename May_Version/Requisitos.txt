@@ -66,7 +66,7 @@ ipg-secuty-privte-opvlan-wificp		192.168.240.0/21
 4. FASE 1 - ACTIVIDADES PREVIAS - AZURE FIREWALL
 
 * Utilizar el Resource Group "existente":
-rg-platfr-secuty-public-trv-i
+rg-platfr-netwrk-centrl-trv-i
 
 * Azure Firewall:
 afw-secuty-public-centrl-trv-i
