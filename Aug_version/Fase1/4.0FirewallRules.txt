@@ -1,0 +1,4 @@
+NOTAS:
+
+Ejecutar desde el 4.1 hasta el .413 para crear las reglas por segmentos, 
+esto permitirá agregar o eliminar reglas sin afectar todo el Collection Rule

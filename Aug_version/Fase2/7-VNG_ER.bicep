@@ -26,8 +26,8 @@ resource virtualNetworkGateway 'Microsoft.Network/virtualNetworkGateways@2024-05
       }
     ]
     sku: {
-      name: 'ErGw1AZ'
-      tier: 'ErGw1AZ'
+      name: 'ErGw2AZ'
+      tier: 'ErGw2AZ'
     }
     gatewayType: 'ExpressRoute'
     vpnType: 'PolicyBased'
