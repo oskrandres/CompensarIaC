@@ -1,9 +1,9 @@
 
 param location string = resourceGroup().location
 
-var azureFirewallName = 'afw-secuty-public-centrl-trv-i'
-var publicIPName = 'pip-afw-secuty-public-centrl-trv-i'
-var firewallPolicyName = 'afwp-afw-secuty-public-centrl-trv-i'
+var azureFirewallName = 'afw-netwrk-centrl-public-trv-i'
+var publicIPName = 'pip-afw-netwrk-centrl-public-trv-i'
+var firewallPolicyName = 'afwp-afw-netwrk-centrl-public-trv-i'
 var vnetName = 'vnet-netwrk-centrl-main-trv-i'
 var subnetName = 'AzureFirewallSubnet'
 

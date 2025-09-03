@@ -1,5 +1,5 @@
 param location string = resourceGroup().location
-param publicIPAddresses_ip_afw_azurecorptransversal_name string = 'pip-afw-secuty-public-centrl-trv-i'
+param publicIPAddresses_ip_afw_azurecorptransversal_name string = 'pip-afw-netwrk-centrl-public-trv-i'
 
 resource publicIP 'Microsoft.Network/publicIPAddresses@2024-05-01' = {
   name: publicIPAddresses_ip_afw_azurecorptransversal_name

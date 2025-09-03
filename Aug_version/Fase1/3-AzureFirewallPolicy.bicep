@@ -1,5 +1,5 @@
 param location string = resourceGroup().location
-param firewallPolicyName string = 'afwp-afw-secuty-public-centrl-trv-i'
+param firewallPolicyName string = 'afwp-afw-netwrk-centrl-public-trv-i'
 
 resource firewallPolicy 'Microsoft.Network/firewallPolicies@2022-09-01' = {
   name: firewallPolicyName
