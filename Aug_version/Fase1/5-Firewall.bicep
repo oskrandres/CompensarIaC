@@ -4,7 +4,7 @@ param location string = resourceGroup().location
 var azureFirewallName = 'afw-netwrk-centrl-public-trv-i'
 var publicIPName = 'pip-afw-netwrk-centrl-public-trv-i'
 var firewallPolicyName = 'afwp-afw-netwrk-centrl-public-trv-i'
-var vnetName = 'vnet-netwrk-centrl-main-trv-i'
+var vnetName = 'vnet-netwrk-centrl-main-trv-i' // >>>>>falta confirmar el nombre de esta Vnet
 var subnetName = 'AzureFirewallSubnet'
 
 resource publicIP 'Microsoft.Network/publicIPAddresses@2024-05-01' existing = {
